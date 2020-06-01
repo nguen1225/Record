@@ -1,24 +1,28 @@
-# README
+# <アプリ名>
+Record
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+私生活における、あらゆる情報を記録することができ必要であれば期限の通知、記録の可視化ができるようなサイトになっております。
 
-Things you may want to cover:
+### サイトテーマ
+使い方は無限大
 
-* Ruby version
+### テーマを選んだ理由
+一つの分野に絞った記録をするサイトはよく見かけますが、自ら記録したい分野を作成して使用するアプリやサイトをあまり見たことがないので、実際に作ってみたいと思った事と、何より自分自身がこのサイトを使って私生活を効率化したいと思ったからでです。
 
-* System dependencies
+### ターゲットユーザ
+私生活の効率化を行いたい人
+管理能力を補いたい人
 
-* Configuration
+### 主な利用シーン
+・お金を管理をしたい人
+・冷蔵庫の賞味期限を管理したい人
+・カフェの滞在時間を管理したい人
+	など様々なことが想定されます。
 
-* Database creation
+## 設計書
 
-* Database initialization
+### 機能一覧
+<https://docs.google.com/spreadsheets/d/1d-OfoS7b9Eoe76SxYiKflDdo67rRwzL5rM2OKqPBY0M/edit#gid=0>
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
