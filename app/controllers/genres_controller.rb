@@ -1,7 +1,12 @@
 class GenresController < ApplicationController
+  before_action :set_genre, only: [:edit, :update, :destroy]
+  before_action :set_search
+  before_action :set_genre
+
   def index
   	@genres = Genre.all
   	@genre = Genre.new
+    @search = Event.ransack(params[:q])
   end
 
   def create
@@ -19,15 +24,33 @@ class GenresController < ApplicationController
   def edit
   end
 
-  
+
+  def update
+    if @genre.update(genre_params)
+      redirect_to genres_path, notice: 'Genre was successfully updated.'
+    else
+      render :edit
+    end
+  end
 
   def destroy
-  	@genre = Genre.find(params[:id])
     @genre.destroy
       redirect_to genres_url, notice: 'Genre was successfully destroyed.'
   end
 
   private
+    def set_genre
+      @genre = Genre.find(params[:id])
+    end
+
+    def set_search
+      @search = Event.ransack(params[:q])
+    end
+
+    def set_genre
+      @genres = Genre.all
+    end
+
     def genre_params
       params.require(:genre).permit(:name)
     end
