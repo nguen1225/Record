@@ -12,8 +12,8 @@
   <body>
     <% if user_signed_in? %>  <!-- deviseのメソッドで、「ログインしているかしていないかでtrue or falseを返す」メソッド -->
       <%= link_to "about" %><br>
-      <%= link_to "new genre" %><br>
-      <%= link_to "new event" %><br>
+      <%= link_to "new genre", genres_path %><br>
+      <%= link_to "new event", new_event_path %><br>
       <%= link_to "graph" %><br>
       <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     <% else %>
