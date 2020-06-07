@@ -11,14 +11,24 @@
 </p>
 
 <p>
-  <strong>Start date:</strong>
+  <strong>Value:</strong>
+  <%= @event.value %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @event.genre.name %>
+</p>
+
+<p>
+  <strong>Start:</strong>
   <%= @event.start_date %>
 </p>
 
 <p>
-  <strong>End date:</strong>
+  <strong>End:</strong>
   <%= @event.end_date %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', root_path %>

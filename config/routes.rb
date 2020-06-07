@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  get 'genres/index'
-  get 'genres/edit'
-  get 'users/index'
+  #get 'genres/index'
+  #get 'genres/edit'
+  #get 'users/index'
   devise_for :users
   resources :events
-  root 'events#index'
+  resources :genres
+  root 'users#index'
   get 'graphs/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

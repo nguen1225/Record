@@ -22,7 +22,11 @@
   </div>
   <div class="field">
     <%= form.label :value %>
-    <%= form.text_area :value %>
+    <%= form.text_field :value %>
+  </div>
+
+  <div class="field">
+    <%= form.collection_select :genre_id,Genre.all,:id,:name,:include_blank => "-- 選択してください --"%>
   </div>
 
   <div class="field">
