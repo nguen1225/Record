@@ -1,9 +1,15 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_search
+  before_action :set_genre
 
   def index
-    @events = Event.all
+    if params[:genre_id].blank?  #もしもジャンルを選択しなければ全てのイベントを表示
+      @events = Event.all
+    else
+      @events = Event.where(genre_id: params[:genre_id])
+    end
   end
 
   def show
@@ -45,7 +51,15 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
+    def set_search
+      @search = Event.ransack(params[:q])
+    end
+
+    def set_genre
+      @genres = Genre.all
+    end
+
     def event_params
-      params.require(:event).permit(:title, :text, :value, :start_date, :end_date)
+      params.require(:event).permit(:title, :text, :value, :start_date, :end_date, :genre_id)
     end
 end
