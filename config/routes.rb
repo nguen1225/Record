@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   #get 'genres/index'
   #get 'genres/edit'
   #get 'users/index'
+  #get "users" => "users#index"
   devise_for :users
   resources :events
   resources :genres

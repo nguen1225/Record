@@ -11,13 +11,15 @@ class GenresController < ApplicationController
     if @genre.save
       redirect_to genres_path, notice: 'Genre was successfully created.'
     else
-      render :index
       @genres = Genre.all
+      render :index
     end
   end
 
   def edit
   end
+
+  
 
   def destroy
   	@genre = Genre.find(params[:id])

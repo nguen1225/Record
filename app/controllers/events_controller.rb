@@ -3,7 +3,11 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
+    if params[:genre_id].blank?
+      @events = Event.all
+    else
+      @events = Event.where(genre_id: params[:genre_id])
+    end
   end
 
   def show
