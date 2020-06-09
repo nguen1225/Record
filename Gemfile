@@ -70,3 +70,7 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
 gem 'ransack'
+
+gem 'dotenv-rails'
+
+gem 'whenever', require: false
