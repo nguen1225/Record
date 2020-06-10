@@ -7,20 +7,30 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
   <body>
-    <% if user_signed_in? %>  <!-- deviseのメソッドで、「ログインしているかしていないかでtrue or falseを返す」メソッド -->
-      <%= link_to "about", root_path %><br>
-      <%= link_to "new genre", genres_path %><br>
-      <%= link_to "new event", new_event_path %><br>
-      <%= link_to "graph", graphs_index_path %><br>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "about" %><br>
-      <%= link_to "Sign up", new_user_registration_path %><br>
-      <%= link_to "Log in", new_user_session_path %>
-    <% end %>
+    <div class="a">
+    <div class="b"><img class="c" src="assets/test1.jpg"></div>
+    <div class="b"><img class="c" src="assets/test2.jpg"></div>
+    <div class="b"><img class="c" src="assets/test3.jpg"></div>
+    <div class="b"><img class="c" src="assets/test4.jpg"></div>
+    <div class="b"><img class="c" src="assets/test5.jpg"></div>
+    </div>
+      <% if user_signed_in? %>  <!-- deviseのメソッドで、「ログインしているかしていないかでtrue or falseを返す」メソッド -->
+        <%= link_to "about", root_path %><br>
+        <%= link_to "new genre", genres_path %><br>
+        <%= link_to "new event", new_event_path %><br>
+        <%= link_to "graph", graphs_index_path %><br>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "about" %><br>
+        <%= link_to "Sign up", new_user_registration_path %><br>
+        <%= link_to "Log in", new_user_session_path %>
+      <% end %>
   </body>
 </html>
 

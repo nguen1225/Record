@@ -21,6 +21,15 @@
 //= require chartkick
 //= require Chart.bundle
 
+$(function() {
+    $('.a').slick({
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 10000,
+    });
+});
+
+
 
 $(function () {
     // 画面遷移を検知
