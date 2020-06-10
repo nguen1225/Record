@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+
+<%= render 'searchs/search', search: @search %><br>
+<%= render 'genres/genreslist', genres: @genres %>
+
+
 <h1>Events</h1>
 
 <table>
@@ -31,3 +36,7 @@
     <% end %>
   </tbody>
 </table>
+
+<br>
+
+<%= column_chart @events.pluck(:title, :value), id: 'total-attendance-chart', width: '400px', height: '500px', colors: ['#C0C0C0'] %>
