@@ -21,10 +21,12 @@
       <%= link_to "Sign up", new_user_registration_path %><br>
       <%= link_to "Log in", new_user_session_path %>
     <% end %>
-    <%= yield %>
   </body>
 </html>
 
-<%= render 'genres/genreslist', genres: @genres %>
+<% if user_signed_in? %>
+  <%= render 'searchs/search', search: @search %><br>
+  <%= render 'genres/genreslist', genres: @genres %>
+<% end %>
 
-<%= render 'searchs/search', search: @search %>
+<%= yield %>
