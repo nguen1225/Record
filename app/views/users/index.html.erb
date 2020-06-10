@@ -1,4 +1,11 @@
-<%= render 'searchs/search', search: @search %><br>
-<%= render 'genres/genreslist', genres: @genres %>
-
-<div id="calendar"></div>
+<div class="container calender_index">
+	<div class="row">
+		<div class="col-xs-3 category">
+			<%= render 'searchs/search', search: @search %><br>
+			<%= render 'genres/genreslist', genres: @genres %>
+		</div>
+		<div class="col-xs-9">
+			<div id="calendar"></div>
+		</div>
+	</div>
+</div>

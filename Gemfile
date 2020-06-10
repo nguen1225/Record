@@ -84,3 +84,9 @@ gem "refile-mini_magick"
 gem 'kaminari','~> 1.1.1'
 
 gem "chartkick"
+
+gem 'letter_opener'
+
+gem 'letter_opener_web'
+
+gem 'pry-byebug'
