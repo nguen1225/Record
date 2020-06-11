@@ -27,8 +27,8 @@ class EventsController < ApplicationController
     @event.user_id = current_user.id
 
     if @event.save
-      current_user.email_sent = 0
-      current_user.save
+      @event.email_sent = 0
+      @event.save
       redirect_to @event, notice: 'Event was successfully created.'
     else
       render :new
