@@ -16,7 +16,7 @@ set :environment, :development
 # end
 #
 #every 1.days, at: '9:00 am' do
-every 1.minutes do
+every 1.hours do
 	runner "NotificationMailer.notify_user"
 end
 

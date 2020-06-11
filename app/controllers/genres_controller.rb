@@ -1,7 +1,7 @@
 class GenresController < ApplicationController
   before_action :set_genre, only: [:edit, :update, :destroy]
   before_action :set_search
-  before_action :set_genre
+  before_action :set_genres
 
   def index
   	@genres = Genre.all
@@ -47,7 +47,7 @@ class GenresController < ApplicationController
       @search = Event.ransack(params[:q])
     end
 
-    def set_genre
+    def set_genres
       @genres = Genre.all
     end
 
