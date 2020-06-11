@@ -22,7 +22,7 @@
 //= require Chart.bundle
 
  $(document).on('turbolinks:load', function () {
-    $('.a').slick({
+    $('.slider').slick({
         dots: true,
         autoplay: true,
         autoplaySpeed: 10000,
@@ -75,9 +75,9 @@
                 //イベントの時間表示を２４時間に
                 timeFormat: "HH:mm",
                 //イベントの色を変える
-                eventColor: '#63ceef',
+                eventColor: 'gray',
                 //イベントの文字色を変える
-                eventTextColor: '#000000',
+                eventTextColor: '#FFFFFF',
             });
         }
     });

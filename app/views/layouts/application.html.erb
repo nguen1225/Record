@@ -13,24 +13,30 @@
   </head>
 
   <body>
-    <div class="a">
-    <div class="b"><%= image_tag 'test1.jpg', class: 'c' %></div>
-    <div class="b"><%= image_tag 'test2.jpg', class: 'c' %></div>
-    <div class="b"><%= image_tag 'test3.jpg', class: 'c' %></div>
-    <div class="b"><%= image_tag 'test4.jpg', class: 'c' %></div>
-    <div class="b"><%= image_tag 'test5.jpg', class: 'c' %></div>
-    </div>
-      <% if user_signed_in? %>  <!-- deviseのメソッドで、「ログインしているかしていないかでtrue or falseを返す」メソッド -->
-        <%= link_to "about", root_path %><br>
-        <%= link_to "new genre", genres_path %><br>
-        <%= link_to "new event", new_event_path %><br>
-        <%= link_to "graph", graphs_index_path %><br>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "about" %><br>
-        <%= link_to "Sign up", new_user_registration_path %><br>
-        <%= link_to "Log in", new_user_session_path %>
-      <% end %>
+    <header>
+          <div class="slider">
+          <div class="slider_image"><%= image_tag 'test1.jpg', class: 'slick_image' %></div>
+          <div class="slider_image"><%= image_tag 'test2.jpg', class: 'slick_image' %></div>
+          <div class="slider_image"><%= image_tag 'test3.jpg', class: 'slick_image' %></div>
+          <div class="slider_image"><%= image_tag 'test4.jpg', class: 'slick_image' %></div>
+          <div class="slider_image"><%= image_tag 'test5.jpg', class: 'slick_image' %></div>
+          </div>
+      <nav>
+        <ul>
+          <% if user_signed_in? %>  <!-- deviseのメソッドで、「ログインしているかしていないかでtrue or falseを返す」メソッド -->
+            <li><%= link_to "about", root_path %></li><br>
+            <li><%= link_to "new genre", genres_path %></li><br>
+            <li><%= link_to "new event", new_event_path %></li><br>
+            <li><%= link_to "all events", events_path %></li><br>
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "about" %></li><br>
+            <li><%= link_to "Sign up", new_user_registration_path %></li><br>
+            <li><%= link_to "Log in", new_user_session_path %></li>
+        <% end %>
+      </ul>
+      </nav>
+    </header>
   </body>
 </html>
 

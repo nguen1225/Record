@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_120223) do
+ActiveRecord::Schema.define(version: 2020_06_11_132059) do
 
   create_table "events", force: :cascade do |t|
     t.integer "genre_id", null: false
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_120223) do
     t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email_sent", default: "0"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -55,7 +56,6 @@ ActiveRecord::Schema.define(version: 2020_06_09_120223) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email_sent", default: "0"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
