@@ -14,11 +14,11 @@
 
   <body>
     <div class="a">
-    <div class="b"><img class="c" src="assets/test1.jpg"></div>
-    <div class="b"><img class="c" src="assets/test2.jpg"></div>
-    <div class="b"><img class="c" src="assets/test3.jpg"></div>
-    <div class="b"><img class="c" src="assets/test4.jpg"></div>
-    <div class="b"><img class="c" src="assets/test5.jpg"></div>
+    <div class="b"><%= image_tag 'test1.jpg', class: 'c' %></div>
+    <div class="b"><%= image_tag 'test2.jpg', class: 'c' %></div>
+    <div class="b"><%= image_tag 'test3.jpg', class: 'c' %></div>
+    <div class="b"><%= image_tag 'test4.jpg', class: 'c' %></div>
+    <div class="b"><%= image_tag 'test5.jpg', class: 'c' %></div>
     </div>
       <% if user_signed_in? %>  <!-- deviseのメソッドで、「ログインしているかしていないかでtrue or falseを返す」メソッド -->
         <%= link_to "about", root_path %><br>
