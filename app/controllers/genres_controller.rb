@@ -14,10 +14,9 @@ class GenresController < ApplicationController
     @genre.user_id = current_user.id
 
     if @genre.save
-      redirect_to genres_path, notice: 'Genre was successfully created.'
+       #notice: 'Genre was successfully created.'
     else
       @genres = Genre.all
-      render :index
     end
   end
 
@@ -35,7 +34,7 @@ class GenresController < ApplicationController
 
   def destroy
     @genre.destroy
-      redirect_to genres_url, notice: 'Genre was successfully destroyed.'
+      #notice: 'Genre was successfully destroyed.'
   end
 
   private
