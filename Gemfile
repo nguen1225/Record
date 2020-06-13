@@ -91,6 +91,8 @@ gem 'letter_opener_web'
 
 gem 'pry-byebug'
 
+gem 'enum_help'
+
 group :production do
   gem 'mysql2'
 end
