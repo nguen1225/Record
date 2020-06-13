@@ -90,3 +90,7 @@ gem 'letter_opener'
 gem 'letter_opener_web'
 
 gem 'pry-byebug'
+
+group :production do
+  gem 'mysql2'
+end
