@@ -1,7 +1,7 @@
 class GenresController < ApplicationController
   before_action :set_genre, only: [:edit, :update, :destroy]
   before_action :set_search
-  before_action :set_genre
+  before_action :set_genres
 
   def index
   	@genres = Genre.all
@@ -14,10 +14,9 @@ class GenresController < ApplicationController
     @genre.user_id = current_user.id
 
     if @genre.save
-      redirect_to genres_path, notice: 'Genre was successfully created.'
+       #notice: 'Genre was successfully created.'
     else
       @genres = Genre.all
-      render :index
     end
   end
 
@@ -35,7 +34,7 @@ class GenresController < ApplicationController
 
   def destroy
     @genre.destroy
-      redirect_to genres_url, notice: 'Genre was successfully destroyed.'
+      #notice: 'Genre was successfully destroyed.'
   end
 
   private
@@ -47,7 +46,7 @@ class GenresController < ApplicationController
       @search = Event.ransack(params[:q])
     end
 
-    def set_genre
+    def set_genres
       @genres = Genre.all
     end
 

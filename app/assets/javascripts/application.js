@@ -13,14 +13,25 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
 //= require jquery
 //= require moment
 //= require fullcalendar
+//= require chartkick
+//= require Chart.bundle
+
+ $(document).on('turbolinks:load', function () {
+    $('.slider').slick({
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 10000,
+    });
+});
 
 
-$(function () {
-    // 画面遷移を検知
+
+
     $(document).on('turbolinks:load', function () {
         // lengthを呼び出すことで、#calendarが存在していた場合はtrueの処理がされ、無い場合はnillを返す
         if ($('#calendar').length) {
@@ -64,10 +75,9 @@ $(function () {
                 //イベントの時間表示を２４時間に
                 timeFormat: "HH:mm",
                 //イベントの色を変える
-                eventColor: '#63ceef',
+                eventColor: 'gray',
                 //イベントの文字色を変える
-                eventTextColor: '#000000',
+                eventTextColor: '#FFFFFF',
             });
         }
     });
-});

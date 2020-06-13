@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_06_064318) do
+ActiveRecord::Schema.define(version: 2020_06_11_132059) do
 
   create_table "events", force: :cascade do |t|
     t.integer "genre_id", null: false
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_064318) do
     t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email_sent", default: "0"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -33,6 +34,15 @@ ActiveRecord::Schema.define(version: 2020_06_06_064318) do
 
   create_table "graphs", force: :cascade do |t|
     t.integer "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visiter_id"
+    t.integer "visited_id"
+    t.string "action"
+    t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

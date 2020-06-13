@@ -14,3 +14,43 @@
  *= require_self
  *= require fullcalendar
  */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ .slick_image {
+  height: 500px;
+  width :100%;
+}
+
+.slick-dots {
+  li {
+    font-size: 20px !important;
+    button:before {
+      content: "" !important;
+      font-size: 14px !important;
+      color: rgb(60, 60, 60) !important;
+    }
+  }
+}
+
+
+.genre-th {
+	background-color: gray;
+	border-radius: 50px;
+	opacity: 0.5;
+}
+.genre-headline {
+	text-align: center;
+	color: white;
+}
+.genre-td {
+	text-align: center;
+	padding-bottom: 30px;
+}
+.genre-item-name{
+	line-height: 40px;
+	font-size: 15px;
+	color: black;
+	text-decoration: none;
+}

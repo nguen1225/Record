@@ -7,8 +7,11 @@ class EventsController < ApplicationController
   def index
     if params[:genre_id].blank?  #もしもジャンルを選択しなければ全てのイベントを表示
       @events = Event.all
+      @name = "Event"
     else
       @events = Event.where(genre_id: params[:genre_id])
+      @genre = Genre.find(params[:genre_id])
+      @name = @genre.name
     end
   end
 
@@ -27,6 +30,8 @@ class EventsController < ApplicationController
     @event.user_id = current_user.id
 
     if @event.save
+      @event.email_sent = 0
+      @event.save
       redirect_to @event, notice: 'Event was successfully created.'
     else
       render :new
