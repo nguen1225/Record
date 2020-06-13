@@ -33,5 +33,10 @@
   <%= @event.end_date.strftime('%Y/%m/%d %H:%M') %>
 </p>
 
+<p>
+  <strong>Alarm:</strong>
+  <%= @event.alarm_i18n %>
+</p>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', root_path %>

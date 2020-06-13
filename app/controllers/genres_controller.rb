@@ -34,6 +34,7 @@ class GenresController < ApplicationController
 
   def destroy
     @genre.destroy
+    #@genre.event.destroy_all  これは違う
       #notice: 'Genre was successfully destroyed.'
   end
 

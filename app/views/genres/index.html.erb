@@ -18,12 +18,10 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody id="genre">
           <% @genres.each do |genre| %>
-            <tr>
-              <td><%= genre.name %></td>
-              <td><%= link_to 'Edit',edit_genre_path(genre) %></td>
-              <td id="genre_destroy_<%= @genre.id %>"><%= render 'genredestroy', genre: genre %></td>
+            <tr id="destroy_<%= genre.id %>">
+              <%= render 'genre', genre: genre %>
             </tr>
           <% end %>
         </tbody>
