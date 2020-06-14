@@ -1,46 +1,25 @@
 <p id="notice"><%= notice %></p>
+<h1><%= @name %></h1>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-3">
-      <%= render 'searchs/search', search: @search %><br>
-      <%= render 'genres/genreslist', genres: @genres %>
-    </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Text</th>
+        <th>Value</th>
+        <th>Category</th>
+        <th>Start</th>
+        <th>End</th>
+        <th colspan="9"></th>
+      </tr>
+    </thead>
 
-    <div class="col-xs-9">
-      <h1><%= @name %></h1>
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Text</th>
-            <th>Value</th>
-            <th>Category</th>
-            <th>Start</th>
-            <th>End</th>
-            <th colspan="9"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @events.each do |event| %>
-            <tr>
-              <td><%= event.title %></td>
-              <td><%= event.text %></td>
-              <td><%= event.value %></td>
-              <td><%= event.genre.name %></td>
-              <td><%= event.start_date.strftime('%Y/%m/%d %H:%M') %></td>
-              <td><%= event.end_date.strftime('%Y/%m/%d %H:%M') %></td>
-              <td><%= link_to 'Show', event %></td>
-              <td><%= link_to 'Edit', edit_event_path(event) %></td>
-              <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
+    <tbody>
+      <% @events.each do |event| %>
+          <%= render 'eventdestroy', event: event %>
+      <% end %>
+    </tbody>
+  </table>
 
   <br>
   <div class="row">

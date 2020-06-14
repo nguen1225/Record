@@ -42,8 +42,21 @@
       </ul>
       </nav>
     </header>
+    <div class="container-fluid">
+      <div class="row">
+        <div id="sidenav" class="col-xs-3">
+          <% if user_signed_in? %>
+            <%= render 'searchs/search', search: @search %><br>
+            <%= render 'genres/genreslist', genres: @genres %>
+          <% end %>
+        </div>
+        <div class="col-xs-9">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 
 
-<%= yield %>
+
