@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  enums:
+    event:
+      alarm:
+        on: on
+        off: off
