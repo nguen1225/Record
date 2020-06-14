@@ -20,9 +20,7 @@
 
         <tbody id="genre">
           <% @genres.each do |genre| %>
-            <tr id="destroy_<%= genre.id %>">
-              <%= render 'genre', genre: genre %>
-            </tr>
+            <%= render 'genre', genre: genre %>
           <% end %>
         </tbody>
       </table>
