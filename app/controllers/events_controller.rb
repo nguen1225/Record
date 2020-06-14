@@ -6,7 +6,7 @@ class EventsController < ApplicationController
 
   def index
     if params[:genre_id].blank?  #もしもジャンルを選択しなければ全てのイベントを表示
-      @events = Event.all
+      @events = Event.where(user_id: current_user.id)  #こうすることで他のuserのデーターを持ってこれなくする
       @name = "Event"
     else
       @events = Event.where(genre_id: params[:genre_id])
@@ -30,8 +30,6 @@ class EventsController < ApplicationController
     @event.user_id = current_user.id
 
     if @event.save
-      @event.email_sent = 0
-      @event.save
       redirect_to @event, notice: 'Event was successfully created.'
     else
       render :new
@@ -48,7 +46,6 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-      redirect_to events_url, notice: 'Event was successfully destroyed.'
   end
 
   private
@@ -61,7 +58,7 @@ class EventsController < ApplicationController
     end
 
     def set_genre
-      @genres = Genre.all
+      @genres = Genre.where(user_id: current_user.id)
     end
 
     def event_params
