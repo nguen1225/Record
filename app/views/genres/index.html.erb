@@ -1,33 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-3">
-      <%= render 'searchs/search', search: @search %><br>
-      <%= render 'genreslist', genres: @genres %>
-    </div>
+<h1>Genres</h1>
 
-    <div class="col-xs-9">
-      <h1>Genres</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Genre Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Genre Name</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
+  <tbody id="genre">
+    <% @genres.each do |genre| %>
+      <%= render 'genre', genre: genre %>
+    <% end %>
+  </tbody>
+</table>
 
-        <tbody id="genre">
-          <% @genres.each do |genre| %>
-            <%= render 'genre', genre: genre %>
-          <% end %>
-        </tbody>
-      </table>
-
-      <div id="genre_create_<%= @genre.id %>">
-        <%= render 'genrecreate', genre: @genre %>
-      </div>
-    </div>
-  </div>
+<div id="genre_create_<%= @genre.id %>">
+  <%= render 'genrecreate', genre: @genre %>
 </div>
+
+
