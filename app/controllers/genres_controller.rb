@@ -1,10 +1,11 @@
 class GenresController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_genre, only: [:edit, :update, :destroy]
   before_action :set_search
   before_action :set_genres
 
   def index
-  	@genres = Genre.all
+  	@genres = Genre.where(user_id: current_user.id)
   	@genre = Genre.new
     @search = Event.ransack(params[:q])
   end
@@ -16,7 +17,7 @@ class GenresController < ApplicationController
     if @genre.save
        #notice: 'Genre was successfully created.'
     else
-      @genres = Genre.all
+      @genres = Genre.where(user_id: current_user.id)
     end
   end
 
@@ -48,7 +49,7 @@ class GenresController < ApplicationController
     end
 
     def set_genres
-      @genres = Genre.all
+      @genres = Genre.where(user_id: current_user.id)
     end
 
     def genre_params
