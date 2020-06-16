@@ -1,4 +1,4 @@
-class SearchsController < ApplicationController
+class Users::SearchsController < ApplicationController
 	def searchs
 		@search = Event.search(params[:q])
 		@events = @search.result

@@ -1,4 +1,4 @@
-class GenresController < ApplicationController
+class Users::GenresController < ApplicationController
   before_action :authenticate_user!
   before_action :set_genre, only: [:edit, :update, :destroy]
   before_action :set_search
