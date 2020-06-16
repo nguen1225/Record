@@ -1,3 +1,2 @@
-// $("#genre_create_<%= @genre.id %>").html("<%= j(render 'genrecreate', genre: @genre) %>");
-$("textarea").val("");
 $("#genre").append("<%= j(render 'genre', genre: @genre) %>");  //appendメソッドはhtml要素を動的に追加
+$("textarea").val('')
