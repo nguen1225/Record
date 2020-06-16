@@ -16,6 +16,7 @@
     <% end %>
   </tbody>
 </table>
+<%= paginate @genres %>
 
 <div id="genre_create_<%= @genre.id %>">
   <%= render 'genrecreate', genre: @genre %>

@@ -6,10 +6,10 @@ class Users::EventsController < ApplicationController
 
   def index
     if params[:genre_id].blank?  #もしもジャンルを選択しなければ全てのイベントを表示
-      @events = Event.where(user_id: current_user.id)  #こうすることで他のuserのデーターを持ってこれなくする
+      @events = Event.where(user_id: current_user.id).page(params[:page]).per(5)  #こうすることで他のuserのデーターを持ってこれなくする
       @name = "Event"
     else
-      @events = Event.where(genre_id: params[:genre_id])
+      @events = Event.where(genre_id: params[:genre_id]).page(params[:page]).per(5)
       @genre = Genre.find(params[:genre_id])
       @name = @genre.name
     end
