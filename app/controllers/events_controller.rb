@@ -16,6 +16,9 @@ class EventsController < ApplicationController
   end
 
   def show
+    if @event.user_id != current_user.id
+          redirect_to root_path(current_user)
+    end
   end
 
   def new
@@ -23,6 +26,9 @@ class EventsController < ApplicationController
   end
 
   def edit
+    if @event.user_id != current_user.id
+          redirect_to root_path(current_user)
+    end
   end
 
   def create
