@@ -1,19 +1,8 @@
-<table>
-	<thead>
-		<tr>
-			<th class="genre-th">
-				<h3 class="genre-headline">Category</h3>
-			</th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<tr class="genre-tr">
-			<td class="genre-td">
-				<% genres.each do |genre| %>
+<ul class="nav nav-pills nav-stacked">
+	<li role="presentation" class="active"><a href="#">Category</a></li>
+	<li role="presentation"><a href="#">
+		<% genres.each do |genre| %>
 					<%= link_to "#{genre.name}", events_path(genre_id: genre.id), class: "col-xs-11 genre-item-name" %>
 				<% end %>
-			</td>
-		</tr>
-	</tbody>
-</table>
+	</a></li>
+</ul>
