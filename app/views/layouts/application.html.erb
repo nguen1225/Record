@@ -28,7 +28,10 @@
           </div>
       <nav>
         <ul>
-          <% if user_signed_in? %>  <!-- deviseのメソッドで、「ログインしているかしていないかでtrue or falseを返す」メソッド -->
+          <% if request.url.include?('admin') %>
+            <% if admin_signed_in? %>
+            <% end %>
+          <% elsif user_signed_in? %>  <!-- deviseのメソッドで、「ログインしているかしていないかでtrue or falseを返す」メソッド -->
             <li><%= link_to "top", root_path %></li><br>
             <li><%= link_to "new genre", genres_path %></li><br>
             <li><%= link_to "new event", new_event_path %></li><br>
@@ -46,8 +49,8 @@
       <div class="row">
         <div id="sidenav" class="col-xs-3">
           <% if user_signed_in? %>
-            <%= render 'searchs/search', search: @search %><br>
-            <%= render 'genres/genreslist', genres: @genres %>
+            <%= render 'users/searchs/search', search: @search %><br>
+            <%= render 'users/genres/genreslist', genres: @genres %>
           <% end %>
         </div>
         <div class="col-xs-9">

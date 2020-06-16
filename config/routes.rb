@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
-  #get 'genres/index'
-  #get 'genres/edit'
-  #get 'users/index'
-  #get "users" => "users#index"
+  devise_for :admins, :controllers => {
+    :sessions => 'admins/sessions'
+  }
   devise_for :users
-  resources :events
-  resources :genres
-  root 'users#index'
+
+
+  namespace :admins do
+    resources :users, only: [:index]
+  end
+
+
+  scope module: :users do
+    resources :events
+    resources :genres
+    root 'users#index'
+  end
   #get 'graphs/index'
   get 'searchs/searchs' => 'searchs#searchs'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
