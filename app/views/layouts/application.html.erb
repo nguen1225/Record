@@ -29,7 +29,7 @@
       <nav>
         <ul>
           <% if user_signed_in? %>  <!-- deviseのメソッドで、「ログインしているかしていないかでtrue or falseを返す」メソッド -->
-            <li><%= link_to "about", root_path %></li><br>
+            <li><%= link_to "top", root_path %></li><br>
             <li><%= link_to "new genre", genres_path %></li><br>
             <li><%= link_to "new event", new_event_path %></li><br>
             <li><%= link_to "all events", events_path %></li><br>

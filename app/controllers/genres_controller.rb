@@ -22,6 +22,9 @@ class GenresController < ApplicationController
   end
 
   def edit
+    if @genre.user_id != current_user.id
+          redirect_to root_path(current_user)
+    end
   end
 
 
@@ -35,7 +38,6 @@ class GenresController < ApplicationController
 
   def destroy
     @genre.destroy
-    #@genre.event.destroy_all  これは違う
       #notice: 'Genre was successfully destroyed.'
   end
 
