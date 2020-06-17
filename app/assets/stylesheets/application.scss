@@ -59,6 +59,11 @@
   width: 21%;
 }
 
+.nav-pills>li.active>a {
+  background-color: gray !important;
+  opacity: 0.5 !important;
+}
+
 
 .genre-th {
 	background-color: gray;
