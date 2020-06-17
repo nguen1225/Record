@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Genres</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Genre Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id="genre">
+    <% @genres.each do |genre| %>
+      <%= render 'genre', genre: genre %>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @genres %>
+
+<div id="genre_create_<%= @genre.id %>">
+  <%= render 'genrecreate', genre: @genre %>
+</div>
+
+
