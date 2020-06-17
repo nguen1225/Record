@@ -1,5 +1,6 @@
 class NotificationMailer < ApplicationMailer
 
+	#予定通知用
 	def self.notify_user
 		beginning_of_tomorrow = Time.now.tomorrow.beginning_of_day
 		end_of_tomorrow = Time.now.tomorrow.end_of_day
@@ -13,8 +14,8 @@ class NotificationMailer < ApplicationMailer
 		end
 	end
 
+	#予定通知用
 	def send_email(email)
-		#@user = user
     	mail(subject: "予定前です。", to: email ) do |format|
       		format.text
     	end
