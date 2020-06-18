@@ -44,20 +44,21 @@
             <ul class="nav navbar-nav">
               <% if request.url.include?('admin') %>
                 <% if admin_signed_in? %>
+                <li><%= link_to 'Count', admins_users_path %></li>
                 <li><%= link_to 'Contact', admins_contacts_path %></li>
-                <li><%= link_to "Log out", destroy_admin_session_path, method: :delete %></li>
+                <li><%= link_to "Log Out", destroy_admin_session_path, method: :delete %></li>
                 <% end %>
               <% elsif user_signed_in? %>
-                <li><%= link_to "top", root_path %></li>
-                <li><%= link_to "new event", new_event_path %></li>
-                <li><%= link_to "new genre", genres_path %></li>
-                <li><%= link_to "all events", events_path %></li>
-                <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+                <li><%= link_to "Top", root_path %></li>
+                <li><%= link_to "New Event", new_event_path %></li>
+                <li><%= link_to "New Category", genres_path %></li>
+                <li><%= link_to "All Events", events_path %></li>
+                <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
                 <li><%= link_to "Contact", new_contact_path %></li>
               <% else %>
-                <li><%= link_to "about" %></li>
-                <li><%= link_to "Sign up", new_user_registration_path %></li>
-                <li><%= link_to "Log in", new_user_session_path %></li>
+                <li><%= link_to "About" %></li>
+                <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                <li><%= link_to "Log In", new_user_session_path %></li>
               <% end %>
             </ul>
           </div>
@@ -72,7 +73,7 @@
             <% end %>
           <% elsif user_signed_in? %>
             <%= render 'users/searchs/search', search: @search %><br>
-            <%= render 'users/genres/genreslist', genres: @genres %>
+            <%= render 'users/genres/genreslist', genres_list: @genres_list %>
           <% end %>
         </div>
         <div class="col-xs-2">

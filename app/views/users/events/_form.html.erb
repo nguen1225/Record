@@ -13,38 +13,39 @@
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_area :title, size: "1x1", class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :text %>
-    <%= form.text_area :text %>
+    <%= form.text_area :text, size: "8x4", class: "form-control" %>
   </div>
   <div class="field">
     <%= form.label :value %>
-    <%= form.number_field :value, step: "0.1" %>
+    <%= form.number_field :value, step: "0.1", size: "1x1", class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.collection_select :genre_id,Genre.where(user_id: current_user.id),:id,:name,:include_blank => " カテゴリー選択 "%>
+    <%= form.label :genre_id, "Category" %><br>
+    <%= form.collection_select :genre_id,Genre.where(user_id: current_user.id),:id,:name,:include_blank => " select " %>
   </div>
 
   <div class="field">
-    <%= form.label :start_date %>
+    <%= form.label :start_date %><br>
     <%= form.datetime_select :start_date %>
   </div>
 
   <div class="field">
-    <%= form.label :end_date %>
+    <%= form.label :end_date %><br>
     <%= form.datetime_select :end_date %>
   </div>
 
   <div class="field">
-    <%= form.label :alarm %>
+    <%= form.label :alarm %><br>
     <%= form.check_box :alarm, {}, "on", "off" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit('Create',class: "btn") %>
   </div>
 <% end %>

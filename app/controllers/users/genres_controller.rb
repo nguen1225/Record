@@ -5,6 +5,7 @@ class Users::GenresController < ApplicationController
   before_action :set_genres
 
   def index
+    @genres_list = Genre.where(user_id: current_user.id)
   	@genres = Genre.where(user_id: current_user.id).page(params[:page]).per(5)
   	@genre = Genre.new
     @search = Event.ransack(params[:q])
@@ -22,6 +23,7 @@ class Users::GenresController < ApplicationController
   end
 
   def edit
+    @genres_list = Genre.where(user_id: current_user.id)
     if @genre.user_id != current_user.id
           redirect_to root_path(current_user)
     end

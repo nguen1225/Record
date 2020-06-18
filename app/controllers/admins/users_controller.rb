@@ -1,5 +1,5 @@
 class Admins::UsersController < ApplicationController
 	def index
-		@events = User.all
+		@users = User.all
 	end
 end
