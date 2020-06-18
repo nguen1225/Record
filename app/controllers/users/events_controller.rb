@@ -5,7 +5,7 @@ class Users::EventsController < ApplicationController
   before_action :set_genre
 
   def index
-    #グラフ用
+    #グラフ用  #where(created_at: Time.now.prev_month.beginning_of_month..Time.now.prev_month.end_of_month)
     @events = Event.where(user_id: current_user.id)
     if params[:genre_id].blank?
       @events = Event.where(user_id: current_user.id)

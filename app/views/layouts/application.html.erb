@@ -44,7 +44,7 @@
             <ul class="nav navbar-nav">
               <% if request.url.include?('admin') %>
                 <% if admin_signed_in? %>
-                <li><%= link_to 'Graph', admins_users_path %></li>
+                <li><%= link_to 'Count', admins_users_path %></li>
                 <li><%= link_to 'Contact', admins_contacts_path %></li>
                 <li><%= link_to "Log Out", destroy_admin_session_path, method: :delete %></li>
                 <% end %>
