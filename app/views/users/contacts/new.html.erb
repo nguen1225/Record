@@ -13,16 +13,16 @@
 
   <div class="field">
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, size: "1x1", class: "form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :message %>
-    <%= f.text_area :message %>
+    <%= f.text_area :message, size: "20x10", class: "form-control" %>
   </div>
 
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit('Contact',class: "btn") %>
   </div>
 <% end %>

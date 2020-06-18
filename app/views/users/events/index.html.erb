@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @name %></h1>
 
-  <table class="table">
+  <table class="table table-bordered">
     <thead>
-      <tr>
+      <tr class="tr_option">
         <th>Title</th>
         <th>Text</th>
         <th>Value</th>
@@ -15,12 +15,12 @@
     </thead>
 
     <tbody>
-      <% @events.each do |event| %>
+      <% @events_calender.each do |event| %>
           <%= render 'eventdestroy', event: event %>
       <% end %>
     </tbody>
   </table>
-  <%= paginate @events %>
+  <%= paginate @events_calender %>
 
   <br>
   <div class="row">

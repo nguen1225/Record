@@ -28,7 +28,7 @@ class Users::ContactsController < ApplicationController
     end
 
     def set_genre
-      @genres = Genre.where(user_id: current_user.id)
+      @genres_list = Genre.where(user_id: current_user.id)
     end
 
 	def contact_params

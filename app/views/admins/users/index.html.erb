@@ -1,1 +1,2 @@
-<%= column_chart @events.pluck(:user), id: 'total-attendance-chart', width: '400px', height: '500px', colors: ['#C0C0C0'] %>
+<%= line_chart User.all.group(:created_at).count, id: 'total-attendance-chart', width: '400px', height: '500px', colors: ['#C0C0C0'] %>
+<%= @users.count %>
