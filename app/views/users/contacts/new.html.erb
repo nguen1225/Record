@@ -1,7 +1,7 @@
 <%= form_for @contact, url: contacts_path do |f| %>
   <% if @contact.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this @contact from being saved:</h2>
+      <h2><%= pluralize(@contact.errors.count, "件のエラーにより") %> お問い合わせ内容を作成することができませんでした：</h2>
 
       <ul>
       <% @contact.errors.full_messages.each do |message| %>
