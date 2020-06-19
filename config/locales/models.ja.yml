@@ -25,3 +25,14 @@ ja:
               blank: が空白になっています。
             genre:
               required: の選択は必須です。
+      contact:
+        email: メールアドレス
+        message: 本文
+    errors:
+      models:
+        contact:
+          attributes:
+            email:
+              blank: が空白になっています。
+            message:
+              blank: が空白になっています。
