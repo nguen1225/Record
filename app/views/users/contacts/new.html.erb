@@ -1,0 +1,31 @@
+<%= form_for @contact, url: contacts_path do |f| %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "件のエラーにより") %> お問い合わせ内容を作成することができませんでした：</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <h2>お問い合わせ</h2><br>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email, size: "1x1", class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :message %>
+    <%= f.text_area :message, size: "20x10", class: "form-control",:include_blank => " お問い合わせ内容をお書きください。 " %>
+  </div>
+
+ <br>
+
+  <div class="actions">
+    <%= f.submit('Contact',class: "btn") %>
+  </div>
+<% end %>

@@ -1,1 +1,22 @@
-<h2>予定前です</h2>
+
+  予定前日です。
+
+  Title
+  <%= @event.title %>
+
+  Text
+  <%= @event.text %>
+
+  Category
+  <%= @event.genre.name %>
+
+  start
+  <%= @event.start_date.strftime('%Y/%m/%d %H:%M') %>
+
+  end
+  <%= @event.end_date.strftime('%Y/%m/%d %H:%M') %>
+
+
+
+
+

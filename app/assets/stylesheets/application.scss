@@ -62,6 +62,7 @@
 .nav-pills>li.active>a {
   background-color: gray !important;
   opacity: 0.5 !important;
+  font-size: 17px;
 }
 
 
@@ -70,12 +71,7 @@
 	border-radius: 50px;
 	opacity: 0.5;
 }
-.genre-headline {
-	margin: 0px 20px 0px 20px;
-	padding: 10px;
-	text-align: center;
-	color: white;
-}
+
 .genre-td {
 	text-align: center;
 	padding-bottom: 30px;
@@ -85,4 +81,30 @@
 	font-size: 15px;
 	color: black;
 	text-decoration: none;
+}
+
+.field {
+  border-radius: 20px !important;
+}
+
+.btn {
+  background: gray !important;
+  opacity: 0.5 !important;
+  color: #FFFFFF !important;
+  border-radius: 15px;
+}
+
+.option {
+  text-align: center;
+}
+
+.tr_option {
+  background: gray;
+  opacity: 0.5;
+  color: #FFFFFF;
+  border-radius: 15px;
+}
+
+th {
+  font-size: 17px;
 }
