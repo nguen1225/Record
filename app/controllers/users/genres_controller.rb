@@ -18,7 +18,10 @@ class Users::GenresController < ApplicationController
     if @genre.save
        #notice: 'Genre was successfully created.'
     else
-      @genres = Genre.where(user_id: current_user.id)
+      @search = Event.ransack(params[:q])
+      @genres_list = Genre.where(user_id: current_user.id)
+      @genres = Genre.where(user_id: current_user.id).page(params[:page]).per(5)
+      render :index
     end
   end
 

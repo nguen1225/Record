@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+ <h2>お問い合わせ</h2><br>
+
   <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email, size: "1x1", class: "form-control" %>
@@ -18,9 +20,10 @@
 
   <div class="field">
     <%= f.label :message %>
-    <%= f.text_area :message, size: "20x10", class: "form-control" %>
+    <%= f.text_area :message, size: "20x10", class: "form-control",:include_blank => " お問い合わせ内容をお書きください。 " %>
   </div>
 
+ <br>
 
   <div class="actions">
     <%= f.submit('Contact',class: "btn") %>

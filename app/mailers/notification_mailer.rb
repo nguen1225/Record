@@ -16,7 +16,7 @@ class NotificationMailer < ApplicationMailer
 	#予定通知用
 	def send_email(email, event_id)
 		@event = Event.find(event_id)
-    	 mail(subject: "予定前です。", to: email ) do |format|
+    	 mail(subject: "[Record]", to: email ) do |format|
        		format.text
     	 end
 	end

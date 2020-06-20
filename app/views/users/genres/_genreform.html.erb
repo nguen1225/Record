@@ -1,6 +1,5 @@
 <%= form_with(model: genre, url:genres_path, remote: true, method: :post) do |form| %>
 
-
 <% if genre.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(genre.errors.count, "error") %> prohibited this genre from being saved:</h2>
@@ -16,8 +15,8 @@
   <br>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_area :name, size: "1x1", class: "form-control" %>
+    <%= form.label :name, "カテゴリー名" %>
+    <%= form.text_area :name, size: "1x1", class: "form-control", required:true %>
   </div>
   <div class="actions">
     <%= form.submit('Create',class: "btn") %>
