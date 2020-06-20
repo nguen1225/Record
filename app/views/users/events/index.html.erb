@@ -4,17 +4,17 @@
   <table class="table table-bordered">
     <thead>
       <tr class="tr_option">
-        <th>Title</th>
-        <th>Text</th>
-        <th>Value</th>
-        <th>Category</th>
-        <th>Start</th>
-        <th>End</th>
+        <th>タイトル</th>
+        <th>本文</th>
+        <th>数値</th>
+        <th>カテゴリー</th>
+        <th>開始日</th>
+        <th>終了日</th>
         <th colspan="9"></th>
       </tr>
     </thead>
 
-    <tbody>
+    <tbody id="event">
       <% @events_calender.each do |event| %>
           <%= render 'eventdestroy', event: event %>
       <% end %>

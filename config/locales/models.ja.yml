@@ -14,9 +14,23 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: 次回から自動的にログイン
+      admin:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン
       event:
         title: タイトル
+        text: 本文
+        value: 数値
         genre: カテゴリー
+        genre_id: カテゴリー
+        start_date: 開始日
+        end_date: 終了日
+        alarm: 通知
+      contact:
+        email: メールアドレス
+        message: 本文
     errors:
       models:
         event:
@@ -25,14 +39,10 @@ ja:
               blank: が空白になっています。
             genre:
               required: の選択は必須です。
-      contact:
-        email: メールアドレス
-        message: 本文
-    errors:
-      models:
         contact:
           attributes:
             email:
               blank: が空白になっています。
             message:
               blank: が空白になっています。
+              too_long: が500文字以上です。

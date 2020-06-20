@@ -26,7 +26,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :genre_id, "Category" %><br>
+    <%= form.label :genre_id %><br>
     <%= form.collection_select :genre_id,Genre.where(user_id: current_user.id),:id,:name,:include_blank => " select " %>
   </div>
 
