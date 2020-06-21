@@ -5,9 +5,10 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.integer :user_id, null: false
       t.string :title, null: false
       t.text :text, null: false
-      t.integer :value
+      t.decimal :value, precision: 12, scale: 2
       t.datetime :start_date
       t.datetime :end_date
+      t.boolean :checked, default: false, null: false
 
       t.timestamps
     end

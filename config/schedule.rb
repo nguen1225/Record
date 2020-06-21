@@ -20,4 +20,8 @@ every 1.minute do
 	runner "NotificationMailer.notify_user"
 end
 
+every 1.minute do
+	runner "Notification.notification_create"
+end
+
 # Learn more: http://github.com/javan/whenever

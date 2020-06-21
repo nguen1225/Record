@@ -15,6 +15,10 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'capybara/rspec'
 RSpec.configure do |config|
+  config.before(:each, type: :system) do
+    #driven_by :selenium_chrome_headless
+    driven_by :rack_test
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -95,4 +99,12 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 config.include Capybara::DSL
+end
+
+Capybara.register_driver :selenium_chrome_headless do |app|
+    browser_options = ::Selenium::WebDriver::Chrome::Options.new()
+    browser_options.args << '--headless'
+    browser_options.args << '--no-sandbox'
+    browser_options.args << '--disable-gpu'
+    Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
 end

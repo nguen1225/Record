@@ -1,0 +1,33 @@
+<h3 class="text-center">予定日前</h3>
+    <%= link_to notifications_destory_all_path, method: :delete do %>
+        <i class="fas fa-trash" style="color: black;"></i>
+        <h7 style="color: black;">全削除</h7>
+    <% end %>
+    <hr>
+<% if @notifications.exists? %>
+    <table class="table table-bordered">
+        <thead>
+          <tr class="tr_option">
+            <th>タイトル</th>
+            <th>本文</th>
+            <th>開始日</th>
+            <th>終了日</th>
+          </tr>
+        </thead>
+        <div class="users-index">
+            <%#= render @notifications %>
+        <tbody>
+            <% @notifications.each do |notification| %>
+            <tr>
+            	<td><%= notification.title %></td>
+                <td><%= notification.text %></td>
+                <td><%= notification.start_date.strftime('%Y/%m/%d %H:%M') %></td>
+                <td><%= notification.end_date.strftime('%Y/%m/%d %H:%M') %></td>
+            <tr>
+            <% end %>
+        </div>
+    </tbody>
+    </table>
+<% else %>
+    <p>通知はありません</p>
+<% end %>
