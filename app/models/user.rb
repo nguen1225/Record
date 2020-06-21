@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :genres
   has_many :events
   has_many :contacts
+  has_many :notifications
 end

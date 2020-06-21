@@ -25,6 +25,7 @@ class Users::EventsController < ApplicationController
   end
 
   def show
+    @name = "Event"
     if @event.user_id != current_user.id
           redirect_to root_path(current_user)
     end

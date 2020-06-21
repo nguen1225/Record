@@ -13,8 +13,8 @@ RSpec.describe 'eventモデルのテスト', type: :model do
     end
     context 'genreカラム' do
       it '空欄でないこと' do
-        event.genre = ''
-        expect(event.valid?).to eq true;
+        event.genre_id = nil
+        expect(event.valid?).to eq false;
       end
     end
   end

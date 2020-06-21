@@ -46,3 +46,9 @@ ja:
             message:
               blank: が空白になっています。
               too_long: が500文字以上です。
+        user:
+          attributes:
+            email:
+              blank: が空白になっています。
+            password:
+              blank: が空白になっています。

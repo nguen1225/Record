@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_055359) do
+ActiveRecord::Schema.define(version: 2020_06_20_114048) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -38,9 +38,10 @@ ActiveRecord::Schema.define(version: 2020_06_17_055359) do
     t.integer "user_id", null: false
     t.string "title", null: false
     t.text "text", null: false
-    t.integer "value"
+    t.decimal "value", precision: 12, scale: 2
     t.datetime "start_date"
     t.datetime "end_date"
+    t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email_sent", default: "0"
@@ -61,12 +62,15 @@ ActiveRecord::Schema.define(version: 2020_06_17_055359) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer "visiter_id"
-    t.integer "visited_id"
-    t.string "action"
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "event_id"
+    t.integer "genre_id"
+    t.index ["event_id"], name: "index_notifications_on_event_id"
+    t.index ["genre_id"], name: "index_notifications_on_genre_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
