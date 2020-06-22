@@ -50,10 +50,7 @@
   border-radius: 20px;
 }
 
-.container {
-  display: flex;
-  justify-content: space-around;
-}
+
 
 .col-xs-3 {
   width: 21%;
@@ -116,4 +113,17 @@ li.notice {
 i.fa_circle {
   position: absolute;
   margin-left: 400px;
+}
+
+@media screen and (max-width:425px) {
+
+  .slick_image {
+  height: 300px;
+  width :100%;
+}
+
+.table table-bordered {
+  width: 100px;
+  padding: 10px;
+}
 }
