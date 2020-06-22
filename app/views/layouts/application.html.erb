@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -52,7 +53,7 @@
                 <li><%= link_to "Top", root_path %></li>
                 <li><%= link_to "New Event", new_event_path %></li>
                 <li><%= link_to "New Category", genres_path %></li>
-                <li><%= link_to "All Events", events_path %></li>
+                <li><%= link_to "Bfore schedule", notifications_path, class: "notice" %></li>
                 <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
                 <li><%= link_to "Contact", new_contact_path %></li>
               <% else %>
@@ -67,7 +68,7 @@
     </header>
     <div class="container-fluid">
       <div class="row">
-        <div id="sidenav" class="col-xs-2">
+        <div id="sidenav" class="col-xs-12">
           <% if request.url.include?('admin') %>
             <% if admin_signed_in? %>
             <% end %>
@@ -76,12 +77,11 @@
             <%= render 'users/genres/genreslist', genres_list: @genres_list %>
           <% end %>
         </div>
-        <div class="col-xs-2">
-        </div>
-        <div class="col-xs-7">
-          <%= yield %>
-        </div>
       </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <%= yield %>
     </div>
   </body>
 </html>

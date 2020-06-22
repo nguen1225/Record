@@ -25,6 +25,7 @@ class Users::EventsController < ApplicationController
   end
 
   def show
+    @name = "Event"
     if @event.user_id != current_user.id
           redirect_to root_path(current_user)
     end
@@ -45,7 +46,7 @@ class Users::EventsController < ApplicationController
     @event.user_id = current_user.id
 
     if @event.save
-      redirect_to @event, notice: 'Event was successfully created.'
+      redirect_to @event, notice: '作成されました。'
     else
       render :new
     end
@@ -53,7 +54,7 @@ class Users::EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to @event, notice: 'Event was successfully updated.'
+      redirect_to @event, notice: '更新されました。'
     else
       render :edit
     end

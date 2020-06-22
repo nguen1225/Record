@@ -1,32 +1,75 @@
+<div class="row">
+  <p id="notice"><%= notice %></p>
 
-<p id="notice"><%= notice %></p>
 <% if @event.user == current_user %>
 
-  <table class="table table-bordered">
-    <thead>
-      <tr class="tr_option">
-        <th>Title</th>
-        <th>Text</th>
-        <th>Value</th>
-        <th>Category</th>
-        <th>Start</th>
-        <th>End</th>
-        <th>Alarm</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= @event.title %></td>
-        <td><%= @event.text %></td>
-        <td><%= @event.value.to_f %></td>
-        <td><%= @event.genre.name %></td>
-        <td><%= @event.start_date.strftime('%Y/%m/%d %H:%M') %></td>
-        <td><%= @event.end_date.strftime('%Y/%m/%d %H:%M') %></td>
-        <td><%= @event.alarm_i18n %></td>
-      </tr>
-    </tbody>
-  </table>
+  <h1><%= @name %></h1>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      タイトル
+    </div>
+    <div class="panel-footer">
+      <%= @event.title %>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      本文
+    </div>
+    <div class="panel-footer">
+      <%= @event.text %>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      数値
+    </div>
+    <div class="panel-footer">
+      <%= @event.value.to_f %>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      カテゴリー
+    </div>
+    <div class="panel-footer">
+      <%= @event.genre.name %>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      開始日
+    </div>
+    <div class="panel-footer">
+      <%= @event.start_date.strftime('%Y/%m/%d %H:%M') %>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      終了日
+    </div>
+    <div class="panel-footer">
+      <%= @event.end_date.strftime('%Y/%m/%d %H:%M') %>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      通知
+    </div>
+    <div class="panel-footer">
+      <%= @event.alarm_i18n %>
+    </div>
+  </div>
+
   <%= link_to 'Edit', edit_event_path(@event) %> |
-  <%= link_to 'Back', root_path %>
+    <%= link_to 'Back', root_path %>
 
 <% end %>
+</div>
