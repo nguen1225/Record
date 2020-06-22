@@ -35,7 +35,7 @@ class Users::GenresController < ApplicationController
 
   def update
     if @genre.update(genre_params)
-      redirect_to genres_path, notice: 'Genre was successfully updated.'
+      redirect_to genres_path, notice: '更新しました。'
     else
       render :edit
     end
