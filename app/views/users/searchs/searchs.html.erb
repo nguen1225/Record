@@ -3,13 +3,11 @@
 <table class="table table-bordered">
   <thead>
     <tr class="tr_option">
-      <th>タイトル</th>
-      <th>本文</th>
-      <th>数値</th>
+      <th colspan="1"></th>
       <th>カテゴリー</th>
       <th>開始日</th>
       <th>終了日</th>
-      <th colspan="9"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -17,14 +15,12 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.title %></td>
-        <td><%= event.text %></td>
-        <td><%= event.value %></td>
         <td><%= event.genre.name %></td>
         <td><%= event.start_date.strftime('%Y/%m/%d %H:%M') %></td>
         <td><%= event.end_date.strftime('%Y/%m/%d %H:%M') %></td>
-        <td class="option"><%= link_to 'Show', event %></td>
-        <td class="option"><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td class="option"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
+        <td class="option"><%= link_to 'Show', event %><br>
+          <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+        </td>
       </tr>
     <% end %>
   </tbody>

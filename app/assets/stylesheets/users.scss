@@ -9,7 +9,7 @@
 }
 
 #calendar {
- 	width: 900px;
+ 	width: 100%;
  	position: left;
  	top: 90px;
  	bottom: 0;
@@ -29,4 +29,20 @@
 .calender_index {
 	/*margin-top: 200px;*/
 	margin-right: 500px;
+}
+
+@media screen and (max-width:425px) {
+
+#calendar {
+ 	width: 100%;
+ 	position: left;
+ 	top: 90px;
+ 	bottom: 0;
+ 	left: 0;
+ 	right: 0;
+}
+
+.fc-time{
+  display : none;
+}
 }
