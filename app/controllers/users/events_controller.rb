@@ -5,17 +5,19 @@ class Users::EventsController < ApplicationController
   before_action :set_genre
 
   def index
-    #グラフ用  #where(created_at: Time.now.prev_month.beginning_of_month..Time.now.prev_month.end_of_month)
     @events = Event.where(user_id: current_user.id)
+    #グラフ用
     if params[:genre_id].blank?
       @events = Event.where(user_id: current_user.id)
     else
-      @events = Event.where(genre_id: params[:genre_id])
+      @events_1month = Event.where(genre_id: params[:genre_id], start_date: DateTime.now.beginning_of_month..DateTime.now.end_of_month)
+      @events_2month = Event.where(genre_id: params[:genre_id], start_date: DateTime.now.prev_month.beginning_of_month..DateTime.now.prev_month.end_of_month)
+      @events_3month = Event.where(genre_id: params[:genre_id], start_date: DateTime.now.ago(2.month).beginning_of_month..DateTime.now.ago(2.month).end_of_month)
       @genre = Genre.find(params[:genre_id])
     end
-
+    #詳細用
     if params[:genre_id].blank?  #もしもジャンルを選択しなければ全てのイベントを表示
-      @events_calender = Event.where(user_id: current_user.id).page(params[:page]).per(5)  #こうすることで他のuserのデーターを持ってこれなくする
+      @events_calender = Event.where(user_id: current_user.id).page(params[:page]).per(5)
       @name = "Event"
     else
       @events_calender = Event.where(genre_id: params[:genre_id]).page(params[:page]).per(5)
