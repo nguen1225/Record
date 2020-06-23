@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @name %></h1>
 
+<hr>
+
   <table class="table table-bordered">
     <thead>
       <tr class="tr_option">
@@ -24,7 +26,8 @@
   <div class="row">
       <% if params[:genre_id].blank? %>  <!--all eventの時はグラフを出さない-->
       <% else %>
-        <h2><%= @name %> value graph</h2><br>
+        <h2><%= @name %> value graph</h2>
+        <hr>
       <div class="col-xs-4">
         <%= column_chart @events_1month.pluck(:title, :value), id: 'total-attendance-chart1', width: '370px', height: '500px', colors: ['#C0C0C0'] %>
       </div>
