@@ -3,7 +3,9 @@
 
 <% if @event.user == current_user %>
 
-  <h1><%= @name %></h1>
+  <h1>詳細</h1>
+
+  <hr>
 
   <div class="panel panel-default">
     <div class="panel-body">
@@ -68,8 +70,8 @@
     </div>
   </div>
 
-  <%= link_to 'Edit', edit_event_path(@event) %> |
-    <%= link_to 'Back', root_path %>
+  <%= link_to '編集', edit_event_path(@event) %> |
+    <%= link_to '戻る', 'javascript:history.back()' %>
 
 <% end %>
 </div>

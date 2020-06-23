@@ -18,7 +18,7 @@ class Users::EventsController < ApplicationController
     #詳細用
     if params[:genre_id].blank?  #もしもジャンルを選択しなければ全てのイベントを表示
       @events_calender = Event.where(user_id: current_user.id).page(params[:page]).per(5)
-      @name = "Event"
+      @name = "投稿一覧"
     else
       @events_calender = Event.where(genre_id: params[:genre_id]).page(params[:page]).per(5)
       @genre = Genre.find(params[:genre_id])
@@ -27,7 +27,6 @@ class Users::EventsController < ApplicationController
   end
 
   def show
-    @name = "Event"
     if @event.user_id != current_user.id
           redirect_to root_path(current_user)
     end
