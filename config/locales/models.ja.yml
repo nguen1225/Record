@@ -38,7 +38,7 @@ ja:
             title:
               blank: が空白になっています。
             genre:
-              required: の選択は必須です。
+              required: の新規作成はされましたか？もしくは既存のカテゴリーを選択してください。
         contact:
           attributes:
             email:
