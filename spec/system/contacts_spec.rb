@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'eventのテスト' do
   let(:user) { create(:user) }
-  let!(:contact) { create(:contact, user: user, email: 'dewd@dde', message: 'ああああ') }
+  let!(:contact) { create(:contact, user: user, email: 'hogehoge@example.com', message: 'テストテスト') }
   before do
   	visit new_user_session_path
   	fill_in 'user[email]', with: user.email
@@ -38,13 +38,8 @@ describe 'eventのテスト' do
       context 'フォームの確認' do
       it '送信に成功する' do
         visit new_contact_path
-        click_button '送信'
-        #expect(page).to have_content 'successfully'
-        expect(current_path).to eq ('/contacts')
-      end
-      it '送信に失敗する' do
-        visit new_contact_path
-        fill_in contact[message], with: ''
+        fill_in contact[email], with: contact.email
+        fill_in contact[message], with: contact.message
         click_button '送信'
         expect(current_path).to eq ('/contacts')
       end

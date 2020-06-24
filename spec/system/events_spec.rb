@@ -3,9 +3,17 @@ require 'rails_helper'
 describe 'eventのテスト' do
   let(:user) { create(:user) }
   let!(:user2) { create(:user) }
-  let!(:genre) { create(:genre, user: user, name: 'ポテト')}
-  let!(:event) { create(:event, user: user, title: 'じゃがいも', text: 'imo', genre: genre) }
-  let!(:event2) { create(:event, user: user2, title: 'じゃがいもaaaaaaaaa', text: 'imoaaaa', genre: genre) }
+  let!(:genre) { create(:genre, user: user, name: '予定')}
+  let!(:event) { create(:event,
+    user: user,
+    title: '勉強',
+    text: '10時間',
+    genre: genre,
+    start_date: DateTime.new(2020, 2, 24, 12, 30),
+    end_date: DateTime.new(2020, 2, 25, 12, 30),
+    alarm: 'on'
+  ) }
+  let!(:event2) { create(:event, user: user2, title: '遊び', text: '神戸に行く', genre: genre) }
   before do
   	visit new_user_session_path
   	fill_in 'user[email]', with: user.email
@@ -31,7 +39,7 @@ describe 'eventのテスト' do
 		context '他人の投稿の編集画面への遷移' do
 		  it '遷移できない' do
 		    visit edit_event_path(event2)
-		    expect(current_path).to eq('/events')
+		    expect(current_path).to eq('/')
 		  end
 		end
 		context '表示の確認' do
@@ -39,6 +47,7 @@ describe 'eventのテスト' do
 				visit edit_event_path(event)
 			end
 			it '投稿編集と表示される' do
+        #binding.pry
 				expect(page).to have_content('投稿編集')
 			end
 			it 'title編集フォームが表示される' do
@@ -54,30 +63,30 @@ describe 'eventのテスト' do
         expect(page).to have_field 'event[genre_id]', with: event.genre_id
       end
        it 'start_date編集フォームが表示される' do
-        expect(page).to have_field 'event[start_date(1i)]','event[start_date(2i)]','event[start_date(3i)]','event[start_date(4i)]','event[start_date(5i)]', with: strftime('%Y/%m/%d %H:%M')
+        expect(page).to have_field 'event[start_date(1i)]', with: '2020'
+        expect(page).to have_field 'event[start_date(2i)]', with: '2'
+        expect(page).to have_field 'event[start_date(3i)]', with: '24'
+        expect(page).to have_field 'event[start_date(4i)]', with: '12'
+        expect(page).to have_field 'event[start_date(5i)]', with: '30'
       end
        it 'end_date編集フォームが表示される' do
-        expect(page).to have_field 'event[end_date]', with: event.end_date
+        expect(page).to have_field 'event[end_date(1i)]', with: '2020'
+        expect(page).to have_field 'event[end_date(2i)]', with: '2'
+        expect(page).to have_field 'event[end_date(3i)]', with: '25'
+        expect(page).to have_field 'event[end_date(4i)]', with: '12'
+        expect(page).to have_field 'event[end_date(5i)]', with: '30'
       end
        it 'alarm編集フォームが表示される' do
-        expect(page).to have_field 'event[alarm]', with: event_alarm
+        expect(page).to have_field 'event[alarm]', with: event.alarm
       end
 			it '戻るリンクが表示される' do
-				expect(page).to have_link '戻る', href: root_path
+				expect(page).to have_link '戻る', href: 'javascript:history.back()'
 			end
 		end
 		context 'フォームの確認' do
 			it '編集に成功する' do
 				visit edit_event_path(event)
 				click_button '作成'
-				#expect(page).to have_content 'successfully'
-				expect(current_path).to eq '/events/' + event.id.to_s
-			end
-			it '編集に失敗する' do
-				visit edit_event_path(event)
-				fill_in 'event[title]', with: ''
-				click_button '作成'
-				expect(page).to have_content 'error'
 				expect(current_path).to eq '/events/' + event.id.to_s
 			end
 		end
@@ -89,7 +98,7 @@ describe 'eventのテスト' do
   	end
   	context '表示の確認' do
   		it '投稿と表示される' do
-  			expect(page).to have_content '@name'
+  			expect(page).to have_content '投稿一覧'
   		end
   	end
   end

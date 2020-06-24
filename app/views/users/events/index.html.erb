@@ -28,18 +28,10 @@
       <% else %>
         <h2><%= @name %> value graph</h2>
         <hr>
-      <div class="col-xs-4">
-        <%= column_chart @events_1month.pluck(:title, :value), id: 'total-attendance-chart1', width: '370px', height: '500px', colors: ['#C0C0C0'] %>
-      </div>
-  <div class="col-xs-4">
-      <div class="graph">
-        <%= column_chart @events_2month.pluck(:title, :value), id: 'total-attendance-chart2', width: '370px', height: '500px', colors: ['#C0C0C0'] %>
-      </div>
-  </div>
-  <div class="col-xs-4">
-      <div class="graph">
-        <%= column_chart @events_3month.pluck(:title, :value), id: 'total-attendance-chart3', width: '370px', height: '500px', colors: ['#C0C0C0'] %>
-      </div>
+        <div class="col-xs-4">
+          <% @events_1month.each do |event_1month| %>
+            <%= column_chart event_1month.pluck(:title, :value), id: 'total-attendance-chart1', width: '370px', height: '500px', colors: ['#C0C0C0'] %>
+          <% end %>
+        </div>
       <% end %>
-  </div>
 </div>
