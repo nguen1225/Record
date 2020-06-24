@@ -3,7 +3,8 @@ require 'rails_helper'
 describe 'genreのテスト' do
   let(:user) { create(:user) }
   let!(:user2) { create(:user) }
-  let!(:genre) { create(:genre, user: user, name: 'ポテト')}
+  let!(:genre) { create(:genre, user: user, name: '予定')}
+  let!(:genre2) { create(:genre, user: user, name: '勉強時間')}
   before do
   	visit new_user_session_path
   	fill_in 'user[email]', with: user.email
@@ -20,16 +21,6 @@ describe 'genreのテスト' do
   end
 
   describe '編集のテスト' do
-    let(:user) { create(:user) }
-    let!(:user2) { create(:user) }
-    let!(:genre) { create(:genre, user: user, name: 'ポテト')}
-    before do
-    visit new_user_session_path
-    fill_in "user[email]", with: "2020@.com"
-    fill_in 'user[password]', with: user.password
-    click_button 'Log In'
-    visit root_path
-    end
   	context '自分の投稿の編集画面への遷移' do
   	  it '遷移できる' do
 	  		visit edit_genre_path(genre)
@@ -55,7 +46,6 @@ describe 'genreのテスト' do
 				visit genres_path
         fill_in 'genre[name]', with: genre.name
 				click_button '作成'
-				#expect(page).to have_content 'successfully'
 				expect(current_path).to eq ('/genres/')
 			end
 		end

@@ -10,9 +10,13 @@ class Users::EventsController < ApplicationController
     if params[:genre_id].blank?
       @events = Event.where(user_id: current_user.id)
     else
-      @events_1month = Event.where(genre_id: params[:genre_id], start_date: DateTime.now.beginning_of_month..DateTime.now.end_of_month)
-      @events_2month = Event.where(genre_id: params[:genre_id], start_date: DateTime.now.prev_month.beginning_of_month..DateTime.now.prev_month.end_of_month)
-      @events_3month = Event.where(genre_id: params[:genre_id], start_date: DateTime.now.ago(2.month).beginning_of_month..DateTime.now.ago(2.month).end_of_month)
+      @events_1month = Event.where(genre_id: params[:genre_id], 
+                                      title: params[:title], 
+                                      value: params[:value], 
+                                      start_date: DateTime.now.beginning_of_month..DateTime.now.end_of_month
+                                      )
+      # @events_2month = Event.where(genre_id: params[:genre_id], start_date: DateTime.now.prev_month.beginning_of_month..DateTime.now.prev_month.end_of_month)
+      # @events_3month = Event.where(genre_id: params[:genre_id], start_date: DateTime.now.ago(2.month).beginning_of_month..DateTime.now.ago(2.month).end_of_month)
       @genre = Genre.find(params[:genre_id])
     end
     #詳細用
@@ -79,6 +83,13 @@ class Users::EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:title, :text, :value, :start_date, :end_date, :genre_id, :alarm)
+      params.require(:event).permit(:title, 
+                                    :text, 
+                                    :value, 
+                                    :start_date, 
+                                    :end_date, 
+                                    :genre_id, 
+                                    :alarm
+                                    )
     end
 end
