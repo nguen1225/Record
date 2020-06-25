@@ -2,7 +2,11 @@ require 'rails_helper'
 
 describe 'eventのテスト' do
   let(:user) { create(:user) }
-  let!(:contact) { create(:contact, user: user, email: 'hogehoge@example.com', message: 'テストテスト') }
+  let!(:contact) { create(:contact,
+    user: user,
+    email: 'hogehoge@gmail.com',
+    message: 'テストテスト'
+  ) }
   before do
   	visit new_user_session_path
   	fill_in 'user[email]', with: user.email
@@ -30,20 +34,30 @@ describe 'eventのテスト' do
 				visit new_contact_path
 			end
 			it 'emailフォームが表示される' do
-				expect(page).to have_field 'contact[email]', with: contact.email
+				fill_in 'contact[email]', with: Faker::Internet.email
 			end
 			it 'messageフォームが表示される' do
-				expect(page).to have_field 'contact[message]', with: contact.message
+				expect(page).to have_field 'contact[message]', with: ''
 			end
       context 'フォームの確認' do
       it '送信に成功する' do
         visit new_contact_path
-        fill_in contact[email], with: contact.email
-        fill_in contact[message], with: contact.message
+        fill_in 'contact[email]', with: Faker::Internet.email
+        fill_in 'contact[email]', with: Faker::Lorem.characters(number:20)
         click_button '送信'
         expect(current_path).to eq ('/contacts')
       end
     end
-		end
+  end
+  describe 'お問い合わせ完了のテスト' do
+    before do
+      visit contacts_complete_path
+    end
+      context '表示の確認' do
+        it 'お問い合わせを完了しました。と表示される' do
+          expect(page).to have_content 'お問い合わせを完了しました。'
+        end
+      end
+    end
 	end
 end
