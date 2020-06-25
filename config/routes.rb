@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :users, only: [:index]
     resources :contacts, only: [:index, :edit, :update]
+    delete 'contacts/destroy_all' => 'contacts#destroy_all'
   end
 
 
@@ -20,7 +21,6 @@ Rails.application.routes.draw do
     get 'searchs/searchs' => 'searchs#searchs'
     resources :contacts, only: [:new, :create]
     resources :notifications, only: [:index]
-    delete 'notifications/destroy_all' => 'notifications#destroy_all'
     get 'contacts/complete' => 'contacts#complete'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
