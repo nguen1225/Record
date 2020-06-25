@@ -70,8 +70,8 @@
     </div>
   </div>
 
-  <%= link_to '編集', edit_event_path(@event) %> |
-    <%= link_to '戻る', 'javascript:history.back()' %>
+  <%= link_to '編集', edit_event_path(@event), class: "link_btn" %> |
+    <%= link_to '戻る', 'javascript:history.back()', class: "link_btn" %>
 
 <% end %>
 </div>
