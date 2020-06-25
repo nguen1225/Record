@@ -1,5 +1,5 @@
 <tr id="destroy_<%= genre.id %>">
 	<td><%= genre.name %></td>
-	<td class="option"><%= link_to '編集',edit_genre_path(genre) %></td>
+	<td class="option"><%= link_to '編集',edit_genre_path(genre), class: "link_btn" %></td>
 	<td class="option"><%= link_to '削除', genre_path(genre), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
 </tr>
