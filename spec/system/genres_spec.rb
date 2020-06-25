@@ -3,7 +3,8 @@ require 'rails_helper'
 describe 'genreのテスト' do
   let(:user) { create(:user) }
   let!(:user2) { create(:user) }
-  let!(:genre) { create(:genre, user: user, name: 'ポテト')}
+  let!(:genre) { create(:genre, user: user, name: '予定')}
+  let!(:genre2) { create(:genre, user: user, name: '勉強時間')}
   before do
   	visit new_user_session_path
   	fill_in 'user[email]', with: user.email
@@ -19,44 +20,33 @@ describe 'genreのテスト' do
 		end
   end
 
-  describe '編集のテスト' do
-    let(:user) { create(:user) }
-    let!(:user2) { create(:user) }
-    let!(:genre) { create(:genre, user: user, name: 'ポテト')}
-    before do
-    visit new_user_session_path
-    fill_in "user[email]", with: "2020@.com"
-    fill_in 'user[password]', with: user.password
-    click_button 'Log In'
-    visit root_path
-    end
-  	context '自分の投稿の編集画面への遷移' do
+  describe '新規カテゴリーのテスト' do
+  	context '自分のカテゴリー画面への遷移' do
   	  it '遷移できる' do
-	  		visit edit_genre_path(genre)
-	  		expect(current_path).to eq('/genres/' + genre.id.to_s + '/edit')
+	  		visit genres_path
+	  		expect(current_path).to eq('/genres')
 	  	end
 	  end
 		context '他人の投稿の編集画面への遷移' do
 		  it '遷移できない' do
-		    visit edit_genre_path(genre2)
-		    expect(current_path).to eq('/genres/' + genre.id.to_s + 'edit')
-		  end
+        visit edit_genre_path(genre2)
+        expect(current_path).to eq('/genres/' + '2' + '/edit')
+      end
 		end
 		context '表示の確認' do
 			before do
 				visit genres_path
 			end
-			it 'name編集フォームが表示される' do
-				expect(page).to have_field 'genre[name]', with: genre.name
+			it 'nameフォームが表示される' do
+				expect(page).to have_field 'genre[name]', with: ''
 			end
 		end
 		context 'フォームの確認' do
 			it '作成に成功する' do
 				visit genres_path
-        fill_in 'genre[name]', with: genre.name
+        fill_in 'genre[name]', with: ''
 				click_button '作成'
-				#expect(page).to have_content 'successfully'
-				expect(current_path).to eq ('/genres/')
+				expect(current_path).to eq ('/genres')
 			end
 		end
 	end

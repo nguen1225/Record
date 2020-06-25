@@ -1,20 +1,20 @@
 
   予定前日です。
 
-  Title
-  <%= @event.title %>
+  ・タイトル
+    <%= @event.title %>
 
-  Text
-  <%= @event.text %>
+  ・本文
+    <%= @event.text %>
 
-  Category
-  <%= @event.genre.name %>
+  ・カテゴリー
+    <%= @event.genre.name %>
 
-  start
-  <%= @event.start_date.strftime('%Y/%m/%d %H:%M') %>
+  ・開始日
+    <%= @event.start_date.strftime('%Y/%m/%d %H:%M') %>
 
-  end
-  <%= @event.end_date.strftime('%Y/%m/%d %H:%M') %>
+  ・終了日
+    <%= @event.end_date.strftime('%Y/%m/%d %H:%M') %>
 
 
 

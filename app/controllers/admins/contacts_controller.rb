@@ -2,7 +2,7 @@ class Admins::ContactsController < ApplicationController
 	before_action :authenticate_admin!
 
 	def index
-		@contacts = Contact.page(params[:page]).order(created_at: :desc).per(15)
+		@contacts = Contact.page(params[:page]).order(created_at: :desc).per(10)
 	end
 
 	def edit
@@ -16,6 +16,13 @@ class Admins::ContactsController < ApplicationController
 		ContactMailer.send_admin_reply(user, contact).deliver_now
 		redirect_to admins_users_path
 	end
+
+	def destroy_all
+      #通知を全削除
+      	@contacts = Contact.all
+        @contacts.destroy_all
+        redirect_to admins_contacts_path
+    end
 
 	private
 	def contact_params

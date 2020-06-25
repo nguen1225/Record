@@ -15,6 +15,9 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'capybara/rspec'
 RSpec.configure do |config|
+  config.before(:all) do
+    FactoryBot.reload
+  end
   config.before(:each, type: :system) do
     #driven_by :selenium_chrome_headless
     driven_by :rack_test
