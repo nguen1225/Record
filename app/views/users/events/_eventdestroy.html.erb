@@ -3,7 +3,7 @@
 	<td><%= event.value %></td>
 	<td><%= event.start_date.strftime('%Y/%m/%d %H:%M') %></td>
 	<td><%= event.end_date.strftime('%Y/%m/%d %H:%M') %></td>
-	<td class="option"><%= link_to '詳細', event %><br>
-	<%= link_to '編集', edit_event_path(event) %><br>
+	<td class="option"><%= link_to '詳細', event, class: "link_btn" %><br>
+	<%= link_to '編集', edit_event_path(event), class: "link_btn" %><br>
 	<%= link_to '削除', event, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
 </tr>

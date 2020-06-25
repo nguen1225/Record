@@ -10,11 +10,52 @@ class Users::EventsController < ApplicationController
     if params[:genre_id].blank?
       @events = Event.where(user_id: current_user.id)
     else
-      @events_1month = Event.where(genre_id: params[:genre_id], 
-                                      title: params[:title], 
-                                      value: params[:value], 
-                                      start_date: DateTime.now.beginning_of_month..DateTime.now.end_of_month
-                                      )
+      # @event_months = []
+      # month = 0..12
+      # month.each do |i|
+      #   # datetime = DateTime('2020-6-01') - i
+      #   events = Event.where(
+      #     genre_id: params[:genre_id],
+      #     #start_date: datetime.beginning_of_month..datetime.end_of_month
+      #     start_date: DateTime.now.beginning_of_month..DateTime.now.end_of_month
+      #   )
+      #   @event_months << {
+      #     name: events.take.start_date,
+      #     data: {
+      #       value: events.sum(:value)
+      #     }
+      #   }
+      # end
+
+      @event_months = []
+      month = 0..12
+      month.each do |i|
+        events = Event.where(
+          genre_id: params[:genre_id],
+          start_date: DateTime.now.beginning_of_month..DateTime.now.end_of_month
+        )
+        @event_months << {
+          name: events.take.genre_id,
+          data: {
+            value: events.sum(:value)
+          }
+        }
+      end
+      # @event_months = []
+      # events = Event.where(
+      #   genre_id: params[:genre_id],
+      #   start_date: DateTime.now.beginning_of_month..DateTime.now.end_of_month
+      # )
+      # @event_months << {
+      #   name: events.take.start_date,
+      #   data: {
+      #     value: events.sum(:value)
+      #   }
+      # }
+
+      # @events_1month = Event.where(genre_id: params[:genre_id], 
+      #                                 start_date: DateTime.now.beginning_of_month..DateTime.now.end_of_month
+      #                                 )
       # @events_2month = Event.where(genre_id: params[:genre_id], start_date: DateTime.now.prev_month.beginning_of_month..DateTime.now.prev_month.end_of_month)
       # @events_3month = Event.where(genre_id: params[:genre_id], start_date: DateTime.now.ago(2.month).beginning_of_month..DateTime.now.ago(2.month).end_of_month)
       @genre = Genre.find(params[:genre_id])
