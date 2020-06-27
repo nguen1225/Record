@@ -18,7 +18,7 @@
 <%= paginate @genres %>
 
 <div id="genre_form_<%= @genre.id %>">
-  <%= render 'genreform', genre: @genre %>
+  <%= render 'genreform', genre: @genre, url: genres_path %>
 </div>
 
 
