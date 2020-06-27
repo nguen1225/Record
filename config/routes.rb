@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     :sessions => 'users/sessions'
   }
 
+  get 'homes/about' => 'homes#about'
 
   namespace :admins do
     resources :users, only: [:index]
