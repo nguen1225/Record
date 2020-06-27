@@ -48,6 +48,9 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-puma'
   gem 'capistrano-rbenv'
+  # open ssh requires for capistrano
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :development do
