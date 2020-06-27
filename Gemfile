@@ -44,6 +44,10 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'faker'
   gem 'rails-controller-testing'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
