@@ -1,4 +1,4 @@
-$("#genre_form_<%= @genre.id %>").append("<%= j(render 'genreform', genre: @genre) %>");
+$("#genre_form_<%= @genre.id %>").append("<%= j(render 'genreform', genre: @genre, url: genres_path) %>");
 $("#genre").append("<%= j(render 'genre', genre: @genre) %>");  //appendメソッドはhtml要素を動的に追加
 $("textarea").val('')
 location.reload();
