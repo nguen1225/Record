@@ -31,7 +31,7 @@
         <% @event_months.each_with_index do |event_month, i| %>
           <div class="col-xs-4">
               <%#= column_chart event_month.pluck(:title, :value), id: "total-attendance-chart-#{i}", width: '370px', height: '500px', colors: ['#C0C0C0'] %>
-          <%#= column_chart @event_months %>
+          <%= column_chart @event_months %>
           <%#= column_chart [
             { "name":"2020-06",  "data":{ "value":2000 } },
             { "name":"2020-07",  "data":{ "value":3000 } },
