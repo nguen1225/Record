@@ -3,6 +3,9 @@
 ## サイト概要
 私生活における、あらゆる情報を記録することができ必要であれば期限の通知、記録の可視化ができるようなサイトになっております。
 
+##URL
+<recordrcd.work>
+
 ### サイトテーマ
 使い方は無限大
 
@@ -27,5 +30,4 @@
 
 ### 機能一覧
 <https://docs.google.com/spreadsheets/d/1d-OfoS7b9Eoe76SxYiKflDdo67rRwzL5rM2OKqPBY0M/edit#gid=0>
-
 
