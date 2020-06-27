@@ -57,7 +57,7 @@
                 <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                 <li><%= link_to "お問い合わせ", new_contact_path %></li>
               <% else %>
-                <li><%= link_to "About" %></li>
+                <li><%= link_to "About", homes_about_path %></li>
                 <li><%= link_to "サインアップ", new_user_registration_path %></li>
                 <li><%= link_to "ログイン", new_user_session_path %></li>
               <% end %>
@@ -80,7 +80,7 @@
       </div>
       </div>
     </div>
-    <div class="container-fluid">
+    <div class="container">
       <%= yield %>
     </div>
     <footer class="footer"></footer>
