@@ -2,12 +2,15 @@
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.
 # http://en.wikipedia.org/wiki/Cron
-
+# Rails.env メソットをコールするために、ファイルを読み込む。
+require File.expand_path(File.dirname(__FILE__) + "/environment")
 # Example:
 #
 env :PATH, ENV['PATH']
 set :output, 'log/cron.log'
-set :environment, :development
+rails_env = Rails.env.to_sym
+set :environment, rails_env
+#set :environment, :development
 #
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
@@ -16,12 +19,13 @@ set :environment, :development
 # end
 #
 #every 1.days, at: '9:00 am' do
- every 1.minute do
-	runner "NotificationMailer.notify_user"
-end
 
-# every 1.minute do
-# 	runner "Notification.notification_create"
-# end
+#	runner "NotificationMailer.notify_user"
+#end
+
+
+every 1.minute do
+  runner "NotificationMailer.notify_user"
+end
 
 # Learn more: http://github.com/javan/whenever
