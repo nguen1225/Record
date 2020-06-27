@@ -1,4 +1,5 @@
 class Users::SearchsController < ApplicationController
+	before_action :authenticate_user!
 	def searchs
 		@search = current_user.events.search(params[:q])
 		@events = @search.result.order(id: "DESC").page(params[:page]).per(10)
