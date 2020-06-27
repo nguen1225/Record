@@ -35,7 +35,7 @@ class Users::EventsController < ApplicationController
           start_date: DateTime.now.beginning_of_month..DateTime.now.end_of_month
         )
         @event_months << {
-          name: events.take.genre_id,
+          name: events.take.start_date.strftime('%Y/%m'),
           data: {
             value: events.sum(:value)
           }
