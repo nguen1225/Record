@@ -1,0 +1,4 @@
+$("#destroy_<%= @event.id %>").html('');
+var now_location = location.href;
+var first_page = now_location.split('?')[0];
+location.href = first_page + '#event';

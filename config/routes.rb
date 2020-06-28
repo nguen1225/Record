@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :genres
     root 'users#index'
     get 'searchs/searchs' => 'searchs#searchs'
+    delete 'searchs/searchs' => 'searchs#destroy'
     get 'graphs' => 'graphs#index'
     resources :contacts, only: [:new, :create]
     resources :notifications, only: [:index]
