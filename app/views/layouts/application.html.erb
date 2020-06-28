@@ -26,8 +26,6 @@
         <div class="slider_image"><%= image_tag '6.jpg', class: 'slick_image' %></div>
         <div class="slider_image"><%= image_tag '7.jpg', class: 'slick_image' %></div>
         <div class="slider_image"><%= image_tag '8.jpg', class: 'slick_image' %></div>
-        <div class="slider_image"><%= image_tag '9.jpg', class: 'slick_image' %></div>
-        <div class="slider_image"><%= image_tag '10.jpg', class: 'slick_image' %></div>
         </div>
         <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -53,6 +51,7 @@
                 <li><%= link_to "カレンダー", root_path %></li>
                 <li><%= link_to "新規投稿", new_event_path %></li>
                 <li><%= link_to "新規カテゴリー", genres_path %></li>
+                <li><%= link_to "グラフ", graphs_path %></li>
                 <li><%= link_to "予定前", notifications_path, class: "notice" %></li>
                 <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                 <li><%= link_to "お問い合わせ", new_contact_path %></li>

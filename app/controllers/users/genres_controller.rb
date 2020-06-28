@@ -6,7 +6,8 @@ class Users::GenresController < ApplicationController
 
   def index
     @genres_list = Genre.where(user_id: current_user.id)
-  	@genres = Genre.where(user_id: current_user.id).page(params[:page]).per(5)
+  	@genres = Genre.where(user_id: current_user.id)
+                   .page(params[:page]).per(10)
   	@genre = Genre.new
     @search = Event.ransack(params[:q])
   end
@@ -20,7 +21,8 @@ class Users::GenresController < ApplicationController
     else
       @search = Event.ransack(params[:q])
       @genres_list = Genre.where(user_id: current_user.id)
-      @genres = Genre.where(user_id: current_user.id).page(params[:page]).per(5)
+      @genres = Genre.where(user_id: current_user.id)
+                     .page(params[:page]).per(5)
       render :index
     end
   end
@@ -43,7 +45,6 @@ class Users::GenresController < ApplicationController
 
   def destroy
     @genre.destroy
-      #notice: 'Genre was successfully destroyed.'
   end
 
   private

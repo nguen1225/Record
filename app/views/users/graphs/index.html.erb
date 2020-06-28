@@ -1,0 +1,64 @@
+<table class="table table-bordered">
+  <thead>
+    <tr class="tr_option">
+      <th>グラフカテゴリー</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @genres_graph_list.each do |genre| %>
+    <tr>
+      <td>
+        <%= link_to "#{genre.name}", graphs_path(genre_id: genre.id), class: "link_btn" %>
+        <% end %>
+      </td>
+      </tr>
+  </tbody>
+</table>
+
+<%= paginate @genres_graph_list %>
+
+  <br>
+      <% if params[:genre_id].blank? %>  <!--all eventの時はグラフを出さない-->
+      <% else %>
+        <div class="about">
+          <p><%= @name %>グラフ</p>
+        </div>
+
+            <hr>
+
+        <div class="about">
+            <p>１年間</p>
+
+            <hr>
+
+            <br><%= column_chart @event_months %><br>
+        </div>
+        <div class="about">
+            <p>今月</p>
+
+            <hr>
+
+            <br><%= column_chart @event_now_month %><br>
+        </div>
+        <div class="about">
+            <p>２ヶ月前</p>
+
+            <hr>
+
+            <br><%= column_chart @event_2month_ago %><br>
+        </div>
+        <div class="about">
+            <p>３ヶ月前</p>
+
+            <hr>
+
+            <br><%= column_chart @event_3month_ago %><br>
+        </div>
+      <% end %>
+
+
+
+
+   <%# @event_months.each_with_index do |event_month, i| %>
+   <%#= column_chart event_month.pluck(:title, :value), id: "total-attendance-chart-#{i}", width: '370px', height: '500px', colors: ['#C0C0C0'] %>

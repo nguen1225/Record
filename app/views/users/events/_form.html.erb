@@ -10,24 +10,35 @@
       </ul>
     </div>
   <% end %>
-
+  <br>
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_area :title, size: "1x1", class: "form-control", required:true %>
+    <%= form.text_area :title, size: "1x1", 
+                              class: "form-control", 
+                           required:true 
+    %>
   </div>
+  <br>
 
   <div class="field">
     <%= form.label :text %>
-    <%= form.text_area :text, size: "8x4", class: "form-control" %>
+    <%= form.text_area :text, size: "8x4", 
+                             class: "form-control" %>
   </div>
   <div class="field">
     <%= form.label :value %>
-    <%= form.number_field :value, step: "0.1", size: "1x1", class: "form-control" %>
+    <%= form.number_field :value, step: "0.1", 
+                                  size: "1x1", 
+                                 class: "form-control" 
+    %>
   </div>
 
   <div class="field">
     <%= form.label :genre_id %><br>
-    <%= form.collection_select :genre_id,Genre.where(user_id: current_user.id),:id,:name,:include_blank => " select " %>
+    <%= form.collection_select :genre_id, @genres_list, :id, 
+                                                        :name, 
+                                                        :include_blank => " select " 
+    %>
   </div>
 
   <div class="field">
