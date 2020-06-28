@@ -5,9 +5,9 @@
 
 ## サイトURL
 <https://recordrcd.work>
-テストユーザー
-- test@test.com
-- hogehoge
+- テストユーザー
+- test@test.com  (Email)
+- hogehoge  (パスワード)
 
 ### サイトテーマ
 使い方は無限大
