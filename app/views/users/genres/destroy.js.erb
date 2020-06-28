@@ -1,7 +1,8 @@
 $("#destroy_<%= @genre.id %>").html('');
 var now_location = location.href;
 var first_page = now_location.split('?')[0];
+location.href = first_page + '#genre';
+
 // console.log(location);
 // console.log(now_location);
 // console.log(first_page);
-location.href = first_page + '#genre';

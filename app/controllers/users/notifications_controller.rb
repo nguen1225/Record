@@ -1,5 +1,5 @@
 class Users::NotificationsController < ApplicationController
-
+	before_action :authenticate_user!
 
 	def index
 		@search = Event.ransack(params[:q])

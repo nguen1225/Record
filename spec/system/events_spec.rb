@@ -13,7 +13,11 @@ describe 'eventのテスト' do
     end_date: DateTime.new(2020, 2, 25, 12, 30),
     alarm: 'on'
   ) }
-  let!(:event2) { create(:event, user: user2, title: '遊び', text: '神戸に行く', genre: genre) }
+  let!(:event2) { create(:event, user: user2, 
+                                title: '遊び', 
+                                　text: '神戸に行く', 
+                                genre: genre) 
+}
   before do
   	visit new_user_session_path
   	fill_in 'user[email]', with: user.email

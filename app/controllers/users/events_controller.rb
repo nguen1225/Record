@@ -7,10 +7,12 @@ class Users::EventsController < ApplicationController
   def index
     @events = Event.where(user_id: current_user.id)
     if params[:genre_id].blank?  #もしもジャンルを選択しなければ全てのイベントを表示
-      @events_calender = Event.where(user_id: current_user.id).page(params[:page]).per(5)
+      @events_calender = Event.where(user_id: current_user.id)
+                              .page(params[:page]).per(5)
       @name = "投稿一覧"
     else
-      @events_calender = Event.where(genre_id: params[:genre_id]).page(params[:page]).per(5)
+      @events_calender = Event.where(genre_id: params[:genre_id])
+                              .page(params[:page]).per(5)
       @genre = Genre.find(params[:genre_id])
       @name = @genre.name
     end
@@ -56,6 +58,7 @@ class Users::EventsController < ApplicationController
   end
 
   private
+
     def set_event
       @event = Event.find(params[:id])
     end

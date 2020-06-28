@@ -2,7 +2,8 @@ class Admins::ContactsController < ApplicationController
 	before_action :authenticate_admin!
 
 	def index
-		@contacts = Contact.page(params[:page]).order(created_at: :desc).per(10)
+		@contacts = Contact.page(params[:page])
+						   .order(created_at: :desc).per(10)
 	end
 
 	def edit
@@ -26,6 +27,9 @@ class Admins::ContactsController < ApplicationController
 
 	private
 	def contact_params
-		params.require(:contact).permit(:email, :message, :reply)
+		params.require(:contact).permit(:email, 
+										:message, 
+										:reply
+										)
 	end
 end
