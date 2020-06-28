@@ -8,6 +8,8 @@ class Users::GraphsController < ApplicationController
       	if params[:genre_id].blank?
       		@events = Event.where(user_id: current_user.id)
     	else
+    	  @genre = Genre.find(params[:genre_id])
+      	  @name = @genre.name
 	      event_months = Event.where(genre_id: params[:genre_id]).where(start_date: DateTime.now.beginning_of_year..DateTime.now.end_of_year).group("strftime('%Y-%m', start_date)").sum(:value)
 	      @event_months = []
 	      event_months.sort.each do |event_month|
