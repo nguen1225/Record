@@ -13,7 +13,7 @@ class Users::GraphsController < ApplicationController
       	  @name = @genre.name
 	      event_months = Event.where(genre_id: params[:genre_id])
 	      					  .where(start_date: DateTime.now.beginning_of_year..DateTime.now.end_of_year)
-	      					  .group("strftime('%Y-%m', start_date)")
+	      					  .group("DATE_FORMAT( `sstart_date`, '%Y-%m' )")  #strftime('%Y-%m', start_date) mysql不可メソット
 	      					  .sum(:value)
 	      @event_months = []
 		      event_months.sort.each do |event_month|
@@ -58,6 +58,7 @@ class Users::GraphsController < ApplicationController
 	end
 end
 
+# DATE_FORMAT( `sample_time`, '%Y-%m' )
 
 
 	# @search = current_user.events.search(params[:q])
