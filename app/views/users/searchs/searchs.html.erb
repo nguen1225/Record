@@ -23,7 +23,7 @@
         <td><%= event.start_date.strftime('%Y/%m/%d %H:%M') %></td>
         <td><%= event.end_date.strftime('%Y/%m/%d %H:%M') %></td>
         <td class="option"><%= link_to '詳細', event, class: "link_btn" %><br>
-          <%= link_to '削除', "searchs/#{event.id}" , method: :delete, data: { confirm: '本当によろしいでしょうか？' }, local: true, class: "link_btn" %>
+          <%= link_to '削除', "searchs/destroy/#{event.id}" , method: :delete, data: { confirm: '本当によろしいでしょうか？' }, local: true, class: "link_btn" %>
         </td>
       </tr>
     <% end %>
