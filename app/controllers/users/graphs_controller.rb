@@ -58,6 +58,7 @@ class Users::GraphsController < ApplicationController
 	end
 end
 
+# DATE_FORMAT( `sample_time`, '%Y-%m-%d' )
 
 
 	# @search = current_user.events.search(params[:q])

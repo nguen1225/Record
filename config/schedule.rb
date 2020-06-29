@@ -18,7 +18,7 @@ set :environment, rails_env
 #   rake "some:great:rake:task"
 # end
 #
-every 1.days, at: '0:00 am' do
+every 1.days, at: '11:00 am' do
 	runner "NotificationMailer.notify_user"
 end
 
