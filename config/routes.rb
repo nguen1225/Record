@@ -19,8 +19,8 @@ Rails.application.routes.draw do
     resources :events
     resources :genres
     root 'users#index'
-    get 'searchs/searchs' => 'searchs#searchs'
-    delete 'searchs/searchs/:id' => 'searchs#destroy'
+    get 'searchs' => 'searchs#searchs'
+    delete 'searchs/destroy/:id' => 'searchs#destroy'
     get 'graphs' => 'graphs#index'
     resources :contacts, only: [:new, :create]
     resources :notifications, only: [:index]
