@@ -23,12 +23,12 @@ class Users::ContactsController < ApplicationController
 	private
 
 	def set_search
-      @search = Event.ransack(params[:q])
-    end
+      	  @search = Event.ransack(params[:q])
+    	end
 
-    def set_genre
-      @genres_list = Genre.where(user_id: current_user.id)
-    end
+    	def set_genre
+      	  @genres_list = Genre.where(user_id: current_user.id)
+    	end
 
 	def contact_params
 	  params.require(:contact).permit(:email, :message, :reply)
