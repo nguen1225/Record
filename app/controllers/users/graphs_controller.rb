@@ -26,8 +26,7 @@ class Users::GraphsController < ApplicationController
 
       event_months = Event.where(genre_id: params[:genre_id])
 				      					  .where(start_date: DateTime.now.beginning_of_month..DateTime.now.end_of_month)
-				      					  .order(start_date: "ASC")
-				      					  .group(:title)
+				      					  .group("DATE_FORMAT( `start_date`, '%Y-%m' )")
 				      					  .sum(:value)
       @event_now_month = []
 	      event_months.sort.each do |event_month|
@@ -37,7 +36,7 @@ class Users::GraphsController < ApplicationController
 
       event_months = Event.where(genre_id: params[:genre_id])
 				      					  .where(start_date: DateTime.now.ago(1.month).beginning_of_month..DateTime.now.ago(1.month).end_of_month)
-				      					  .group(:title)
+				      					  .group("DATE_FORMAT( `start_date`, '%Y-%m' )")
 				      					  .sum(:value)
       @event_2month_ago = []
 	      event_months.sort.each do |event_month|
@@ -47,7 +46,7 @@ class Users::GraphsController < ApplicationController
 
       event_months = Event.where(genre_id: params[:genre_id])
 				      					  .where(start_date: DateTime.now.ago(2.month).beginning_of_month..DateTime.now.ago(2.month).end_of_month)
-				      					  .group(:title)
+				      					  .group("DATE_FORMAT( `start_date`, '%Y-%m' )")
 				      					  .sum(:value)
       @event_3month_ago = []
 	      event_months.sort.each do |event_month|
