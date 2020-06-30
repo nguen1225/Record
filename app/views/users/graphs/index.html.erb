@@ -39,21 +39,21 @@
 
             <hr>
 
-            <br><%= column_chart @event_now_month %><br>
+            <br><%= column_chart @event_now_month, colors: ['#ff5722'] %><br>
         </div>
         <div class="about">
             <p>２ヶ月前</p>
 
             <hr>
 
-            <br><%= column_chart @event_2month_ago %><br>
+            <br><%= column_chart @event_2month_ago, colors: ['#8bc34a'] %><br>
         </div>
         <div class="about">
             <p>３ヶ月前</p>
 
             <hr>
 
-            <br><%= column_chart @event_3month_ago %><br>
+            <br><%= column_chart @event_3month_ago, colors: ['#9c27b0'] %><br>
         </div>
       <% end %>
 

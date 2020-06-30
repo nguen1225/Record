@@ -6,9 +6,6 @@
 ## サイトURL
 <https://recordrcd.work>
 - テストユーザー
-- test@test.com  (Email)
-- hogehoge  (パスワード)
-
 - Eメール：test@test.com
 - パスワード：hogehoge
 
