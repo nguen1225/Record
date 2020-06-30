@@ -3,7 +3,6 @@ class Users::ContactsController < ApplicationController
 	before_action :set_search
   	before_action :set_genre
 
-
 	def new
 	  @contact = Contact.new
 	end
