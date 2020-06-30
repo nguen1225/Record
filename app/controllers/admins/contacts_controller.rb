@@ -18,13 +18,13 @@ class Admins::ContactsController < ApplicationController
 	end
 
 	def destroy_all
-      @contacts = Contact.all
-      @contacts.destroy_all
-      redirect_to admins_contacts_path
-    end
+         @contacts = Contact.all
+         @contacts.destroy_all
+         redirect_to admins_contacts_path
+    	 end
 
 	private
 	def contact_params
-		params.require(:contact).permit(:email, :message, :reply)
+	  params.require(:contact).permit(:email, :message, :reply)
 	end
 end
