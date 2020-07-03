@@ -1,11 +1,11 @@
 <div class="row">
   <p id="notice"><%= notice %></p>
 
-<% if @event.user == current_user %>
+  <% if @event.user == current_user %>
 
-<div class="title">
-  <p>詳細</p>
-</div>
+  <div class="title">
+    <p>詳細</p>
+  </div>
 
   <hr>
 
@@ -72,10 +72,10 @@
     </div>
   </div>
 
-<hr>
+  <hr>
 
   <%= link_to '編集', edit_event_path(@event), class: "show_link_btn" %> |
-    <%= link_to '戻る', 'javascript:history.back()', class: "show_link_btn" %>
+  <%= link_to '戻る', 'javascript:history.back()', class: "show_link_btn" %>
 
-<% end %>
+  <% end %>
 </div>
