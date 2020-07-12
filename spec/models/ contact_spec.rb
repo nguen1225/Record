@@ -8,17 +8,17 @@ RSpec.describe 'Contactモデルのテスト', type: :model do
     context 'emailカラム' do
       it '空欄でないこと' do
         contact.email = ''
-        expect(contact.valid?).to eq false;
+        expect(contact.valid?).to eq false
       end
     end
     context 'textカラム' do
       it '空欄でないこと' do
         contact.message = ''
-        expect(contact.valid?).to eq false;
+        expect(contact.valid?).to eq false
       end
       it '500文字以下であること' do
-        contact.message = Faker::Lorem.characters(number:501)
-        expect(contact.valid?).to eq false;
+        contact.message = Faker::Lorem.characters(number: 501)
+        expect(contact.valid?).to eq false
       end
     end
   end

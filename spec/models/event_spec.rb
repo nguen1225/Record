@@ -8,13 +8,13 @@ RSpec.describe 'eventモデルのテスト', type: :model do
     context 'titleカラム' do
       it '空欄でないこと' do
         event.title = ''
-        expect(event.valid?).to eq false;
+        expect(event.valid?).to eq false
       end
     end
     context 'genreカラム' do
       it '空欄でないこと' do
         event.genre_id = nil
-        expect(event.valid?).to eq false;
+        expect(event.valid?).to eq false
       end
     end
   end

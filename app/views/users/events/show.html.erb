@@ -3,79 +3,79 @@
 
   <% if @event.user == current_user %>
 
-  <div class="title">
-    <p>詳細</p>
-  </div>
+    <div class="title">
+      <p>詳細</p>
+    </div>
 
-  <hr>
+    <hr>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      タイトル
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        タイトル
+      </div>
+      <div class="panel-body">
+        <%= @event.title %>
+      </div>
     </div>
-    <div class="panel-body">
-      <%= @event.title %>
-    </div>
-  </div>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      本文
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        本文
+      </div>
+      <div class="panel-body">
+        <%= @event.text %>
+      </div>
     </div>
-    <div class="panel-body">
-      <%= @event.text %>
-    </div>
-  </div>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      数値
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        数値
+      </div>
+      <div class="panel-body">
+        <%= @event.value.to_f %>
+      </div>
     </div>
-    <div class="panel-body">
-      <%= @event.value.to_f %>
-    </div>
-  </div>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      カテゴリー
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        カテゴリー
+      </div>
+      <div class="panel-body">
+        <%= @event.genre.name %>
+      </div>
     </div>
-    <div class="panel-body">
-      <%= @event.genre.name %>
-    </div>
-  </div>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      開始日
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        開始日
+      </div>
+      <div class="panel-body">
+        <%= @event.start_date.strftime('%Y/%m/%d %H:%M') %>
+      </div>
     </div>
-    <div class="panel-body">
-      <%= @event.start_date.strftime('%Y/%m/%d %H:%M') %>
-    </div>
-  </div>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      終了日
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        終了日
+      </div>
+      <div class="panel-body">
+        <%= @event.end_date.strftime('%Y/%m/%d %H:%M') %>
+      </div>
     </div>
-    <div class="panel-body">
-      <%= @event.end_date.strftime('%Y/%m/%d %H:%M') %>
-    </div>
-  </div>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      通知
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        通知
+      </div>
+      <div class="panel-body">
+        <%= @event.alarm_i18n %>
+      </div>
     </div>
-    <div class="panel-body">
-      <%= @event.alarm_i18n %>
-    </div>
-  </div>
 
-  <hr>
+    <hr>
 
-  <%= link_to '編集', edit_event_path(@event), class: "show_link_btn" %> |
-  <%= link_to '戻る', 'javascript:history.back()', class: "show_link_btn" %>
+    <%= link_to '編集', edit_event_path(@event), class: "show_link_btn" %> |
+    <%= link_to '戻る', 'javascript:history.back()', class: "show_link_btn" %>
 
   <% end %>
 </div>

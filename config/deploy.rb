@@ -1,12 +1,12 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.14.1"
+lock '~> 3.14.1'
 
-set :application, "Record"
-set :repo_url, "https://github.com/nguen1225/Record.git"
-set :deploy_to, "/home/ec2-user/Record"
+set :application, 'Record'
+set :repo_url, 'https://github.com/nguen1225/Record.git'
+set :deploy_to, '/home/ec2-user/Record'
 set :rbenv_ruby, '2.5.7'
-set :linked_files, %w{config/master.key .env}
-append :linked_dirs, "log", "public/system", "tmp"
+set :linked_files, %w[config/master.key .env]
+append :linked_dirs, 'log', 'public/system', 'tmp'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

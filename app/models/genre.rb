@@ -1,6 +1,6 @@
 class Genre < ApplicationRecord
-	belongs_to :user
-	has_many :events, dependent: :destroy
+  belongs_to :user
+  has_many :events, dependent: :destroy
 
-	validates :name, presence: true
+  validates :name, presence: true
 end

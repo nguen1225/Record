@@ -7,55 +7,56 @@
 
   <tbody>
     <% @genres_graph_list.each do |genre| %>
-    <tr>
-      <td>
+      <tr>
+        <td>
         <%= link_to "#{genre.name}", graphs_path(genre_id: genre.id), class: "link_btn" %>
-        <% end %>
-      </td>
-     </tr>
+    <% end %>
+        </td>
+      </tr>
   </tbody>
 </table>
 
 <%= paginate @genres_graph_list %>
 
-  <br>
-      <% if params[:genre_id].blank? %>  <!--all eventの時はグラフを出さない-->
-      <% else %>
-        <div class="about">
-          <p><%= @name %>グラフ</p>
-        </div>
+<br>
 
-            <hr>
+<% if params[:genre_id].blank? %>  <!--all eventの時はグラフを出さない-->
+<% else %>
+  <div class="about">
+    <p><%= @name %>グラフ</p>
+  </div>
 
-        <div class="about">
-            <p>１年間</p>
+      <hr>
 
-            <hr>
+  <div class="about">
+      <p>１年間</p>
 
-            <br><%= column_chart @event_months %><br>
-        </div>
-        <div class="about">
-            <p>今月</p>
+      <hr>
 
-            <hr>
+      <br><%= column_chart @event_months %><br>
+  </div>
+  <div class="about">
+      <p>今月</p>
 
-            <br><%= column_chart @event_now_month, colors: ['#ff5722'] %><br>
-        </div>
-        <div class="about">
-            <p>２ヶ月前</p>
+      <hr>
 
-            <hr>
+      <br><%= column_chart @event_now_month, colors: ['#ff5722'] %><br>
+  </div>
+  <div class="about">
+      <p>２ヶ月前</p>
 
-            <br><%= column_chart @event_2month_ago, colors: ['#8bc34a'] %><br>
-        </div>
-        <div class="about">
-            <p>３ヶ月前</p>
+      <hr>
 
-            <hr>
+      <br><%= column_chart @event_2month_ago, colors: ['#8bc34a'] %><br>
+  </div>
+  <div class="about">
+      <p>３ヶ月前</p>
 
-            <br><%= column_chart @event_3month_ago, colors: ['#9c27b0'] %><br>
-        </div>
-      <% end %>
+      <hr>
+
+      <br><%= column_chart @event_3month_ago, colors: ['#9c27b0'] %><br>
+  </div>
+<% end %>
 
 
 
