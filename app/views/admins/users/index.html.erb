@@ -25,14 +25,14 @@
 
   <tbody>
   	<tr>
-    	<% @users.each do |user| %>
-    	<td class="user">
-			<%= user.email %>
-		</td>
-		<td class="user">
-			<%= user.created_at.strftime('%Y/%m/%d %H:%M') %>
-		</td>
+    	   <% @users.each do |user| %>
+    	      <td class="user">
+		  <%= user.email %>
+	      </td>
+	      <td class="user">
+		  <%= user.created_at.strftime('%Y/%m/%d %H:%M') %>
+	      </td>
 	</tr>
-<% end %>
+	   <% end %>
   </tbody>
 </table>
