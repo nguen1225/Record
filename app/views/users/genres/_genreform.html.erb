@@ -1,6 +1,6 @@
 <%= form_with(model: genre, url: url, remote: true) do |form| %>
 
-<% if genre.errors.any? %>
+  <% if genre.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(genre.errors.count, "error") %> prohibited this genre from being saved:</h2>
 
