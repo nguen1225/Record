@@ -8,7 +8,7 @@ RSpec.describe 'Genreモデルのテスト', type: :model do
     context 'nameカラム' do
       it '空欄でないこと' do
         genre.name = ''
-        expect(genre.valid?).to eq false;
+        expect(genre.valid?).to eq false
       end
     end
   end

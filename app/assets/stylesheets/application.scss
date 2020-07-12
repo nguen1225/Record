@@ -19,19 +19,19 @@
  @import "bootstrap";
 
  .slick_image {
-  height: 500px;
-  width :100%;
+    height: 500px;
+    width :100%;
 }
 
 .slick-dots {
-  li {
-    font-size: 20px !important;
-    button:before {
-      content: "" !important;
-      font-size: 14px !important;
-      color: rgb(60, 60, 60) !important;
+    li {
+      font-size: 20px !important;
+      button:before {
+        content: "" !important;
+        font-size: 14px !important;
+        color: rgb(60, 60, 60) !important;
+      }
     }
-  }
 }
 
 .pagination>li>a {
@@ -71,13 +71,13 @@
 .title p {
   text-align: center;
   font-size: 17px;
-    padding: 0.8em 1em;
-    margin: 2em 0;
-    color: #7a7a7a;
-    background: #f9f9f9;
-    border-bottom: solid 6px gray;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
-    border-radius: 9px;
+  padding: 0.8em 1em;
+  margin: 2em 0;
+  color: #7a7a7a;
+  background: #f9f9f9;
+  border-bottom: solid 6px gray;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
 }
 
 
@@ -169,7 +169,7 @@ a:-webkit-any-link:hover{
 
 @media screen and (max-width:425px) {
 
-  .slick_image {
+.slick_image {
   height: 300px;
   width :100%;
 }

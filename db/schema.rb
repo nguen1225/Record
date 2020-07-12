@@ -10,80 +10,78 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_20_114048) do
-
-  create_table "admins", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+ActiveRecord::Schema.define(version: 20_200_620_114_048) do
+  create_table 'admins', force: :cascade do |t|
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['email'], name: 'index_admins_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_admins_on_reset_password_token', unique: true
   end
 
-  create_table "contacts", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "email"
-    t.string "reply"
-    t.string "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'contacts', force: :cascade do |t|
+    t.integer 'user_id'
+    t.string 'email'
+    t.string 'reply'
+    t.string 'message'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "events", force: :cascade do |t|
-    t.integer "genre_id", null: false
-    t.integer "user_id", null: false
-    t.string "title", null: false
-    t.text "text", null: false
-    t.decimal "value", precision: 12, scale: 2
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.boolean "checked", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "email_sent", default: "0"
-    t.boolean "alarm", default: false, null: false
+  create_table 'events', force: :cascade do |t|
+    t.integer 'genre_id', null: false
+    t.integer 'user_id', null: false
+    t.string 'title', null: false
+    t.text 'text', null: false
+    t.decimal 'value', precision: 12, scale: 2
+    t.datetime 'start_date'
+    t.datetime 'end_date'
+    t.boolean 'checked', default: false, null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'email_sent', default: '0'
+    t.boolean 'alarm', default: false, null: false
   end
 
-  create_table "genres", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'genres', force: :cascade do |t|
+    t.integer 'user_id', null: false
+    t.string 'name', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "graphs", force: :cascade do |t|
-    t.integer "event_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'graphs', force: :cascade do |t|
+    t.integer 'event_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "notifications", force: :cascade do |t|
-    t.boolean "checked", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.integer "event_id"
-    t.integer "genre_id"
-    t.index ["event_id"], name: "index_notifications_on_event_id"
-    t.index ["genre_id"], name: "index_notifications_on_genre_id"
-    t.index ["user_id"], name: "index_notifications_on_user_id"
+  create_table 'notifications', force: :cascade do |t|
+    t.boolean 'checked', default: false, null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.integer 'user_id'
+    t.integer 'event_id'
+    t.integer 'genre_id'
+    t.index ['event_id'], name: 'index_notifications_on_event_id'
+    t.index ['genre_id'], name: 'index_notifications_on_genre_id'
+    t.index ['user_id'], name: 'index_notifications_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  create_table 'users', force: :cascade do |t|
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.string 'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['email'], name: 'index_users_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
-
 end
