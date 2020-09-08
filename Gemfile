@@ -89,7 +89,7 @@ gem 'dotenv-rails'
 
 gem 'whenever', require: false
 
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 
