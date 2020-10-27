@@ -7,7 +7,7 @@
 ### ユーザー側
 <https://recordrcd.work>
 - テストユーザー
-- Eメール：test@test.com
+- メールアドレス：test@test.com
 - パスワード：hogehoge
 
 ### 管理者側
