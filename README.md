@@ -37,9 +37,6 @@
 
 ## 主な使用技術
 
-### 機能一覧
-<https://docs.google.com/spreadsheets/d/1d-OfoS7b9Eoe76SxYiKflDdo67rRwzL5rM2OKqPBY0M/edit#gid=0>
-
 ### フロントエンド
 - HTML&CSS
 - Javascript
