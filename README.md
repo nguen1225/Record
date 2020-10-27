@@ -9,6 +9,10 @@
 - Eメール：test@test.com
 - パスワード：hogehoge
 
+<https://recordrcd.work/admins/sign_in>
+- メールアドレス:admin@admin.com
+- パスワード:adminadmin
+
 ### サイトテーマ
 使い方は無限大
 
