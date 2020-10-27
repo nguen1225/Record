@@ -4,11 +4,13 @@
 私生活における、あらゆる情報を記録することができ必要であれば期限の通知、記録の可視化ができるようなサイトになっております。
 
 ## サイトURL
+### ユーザー側
 <https://recordrcd.work>
 - テストユーザー
 - Eメール：test@test.com
 - パスワード：hogehoge
 
+### 管理者側
 <https://recordrcd.work/admins/sign_in>
 - メールアドレス:admin@admin.com
 - パスワード:adminadmin
