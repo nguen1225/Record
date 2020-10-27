@@ -12,8 +12,8 @@
 
 ### 管理者側
 <https://recordrcd.work/admins/sign_in>
-- メールアドレス:admin@admin.com
-- パスワード:adminadmin
+- メールアドレス: admin@admin.com
+- パスワード: adminadmin
 
 ### サイトテーマ
 使い方は無限大
